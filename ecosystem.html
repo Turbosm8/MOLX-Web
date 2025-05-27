@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生态系统 - MOLX</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .ecosystem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="text-2xl font-bold text-blue-600">MOLX</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="hover:text-blue-600 transition-colors">首页</a>
+                <a href="about.html" class="hover:text-blue-600 transition-colors">平台介绍</a>
+                <a href="products.html" class="hover:text-blue-600 transition-colors">产品信息</a>
+                <a href="ecosystem.html" class="text-blue-600 font-medium">生态系统</a>
+                <a href="asset-market.html" class="hover:text-blue-600 transition-colors">资产市场</a>
+                <a href="join-us.html" class="hover:text-blue-600 transition-colors">加入我们</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="user-center.html" class="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors">登录/注册</a>
+                <button class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars text-blue-600 text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="pt-32 pb-20 gradient-bg text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">MOLX 生态系统</h1>
+            <p class="text-xl max-w-3xl mx-auto">
+                探索 MOLX 平台的生态系统和合作伙伴网络，共同构建区块链资产管理的未来。
+            </p>
+        </div>
+    </section>
+
+    <!-- 生态系统概览 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">生态系统概览</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    MOLX 平台构建了一个完整的生态系统，连接用户、企业、开发者和资产方，共同创造价值。
+                </p>
+            </div>
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0">
+                    <img src="https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="生态系统概览" class="rounded-xl shadow-lg">
+                </div>
+                <div class="lg:w-1/2 lg:pl-16">
+                    <h3 class="text-2xl font-bold mb-6">互联互通的价值网络</h3>
+                    <p class="text-gray-600 mb-8 text-lg">
+                        MOLX 生态系统通过区块链技术连接各方参与者，打破传统价值孤岛，创造更大的网络效应和协同价值。
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
+                                    <i class="fas fa-users text-white"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-semibold mb-2">用户生态</h4>
+                                <p class="text-gray-600">个人用户通过消费、社交和投资活动获得积分和收益，同时为生态贡献数据和流量。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center">
+                                    <i class="fas fa-building text-white"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-semibold mb-2">企业生态</h4>
+                                <p class="text-gray-600">企业合作伙伴接入平台，提供忠诚度积分和资产上链服务，获得更高的用户参与度和业务增长。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center">
+                                    <i class="fas fa-code text-white"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-semibold mb-2">开发者生态</h4>
+                                <p class="text-gray-600">开发者可以基于 MOLX 平台构建创新应用和服务，扩展平台功能和用例。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-yellow-600 flex items-center justify-center">
+                                    <i class="fas fa-university text-white"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-semibold mb-2">资产方生态</h4>
+                                <p class="text-gray-600">资产持有方通过平台实现资产代币化，获得更高的流动性和更广泛的投资者基础。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 生态系统组件 -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">生态系统组件</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    MOLX 生态系统由多个核心组件构成，共同支持平台的运行和发展。
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="ecosystem-card bg-white rounded-xl shadow-lg p-8 transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-wallet text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">MOLX 钱包</h3>
+                    <p class="text-gray-600">
+                        用户管理积分和资产的核心工具，支持多链资产存储、交易和管理，提供安全便捷的用户体验。
+                    </p>
+                </div>
+                
+                <div class="ecosystem-card bg-white rounded-xl shadow-lg p-8 transition-all duration-300">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-exchange-alt text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">交易平台</h3>
+                    <p class="text-gray-600">
+                        支持积分和 RWA 代币的交易和流通，提供流动性和价格发现机制，确保资产的有效流转。
+                    </p>
+                </div>
+                
+                <div class="ecosystem-card bg-white rounded-xl shadow-lg p-8 transition-all duration-300">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">AI 分析引擎</h3>
+                    <p class="text-gray-600">
+                        通过人工智能技术分析用户行为和市场数据，优化积分分配和资产管理，提供个性化推荐。
+                    </p>
+                </div>
+                
+                <div class="ecosystem-card bg-white rounded-xl shadow-lg p-8 transition-all duration-300">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">安全与合规</h3>
+                    <p class="text-gray-600">
+                        提供完善的 KYC/AML 流程和安全保障机制，确保平台运行符合监管要求，保护用户资产安全。
+                    </p>
+                </div>
+                
+                <div class="ecosystem-card bg-white rounded-xl shadow-lg p-8 transition-all duration-300">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-file-contract text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">智能合约系统</h3>
+                    <p class="text-gray-600">
+                        基于区块链的智能合约系统，自动执行资产代币化、交易和收益分配等核心功能，确保透明和不可篡改。
+                    </p>
+                </div>
+                
+                <div class="ecosystem-card bg-white rounded-xl shadow-lg p-8 transition-all duration-300">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-plug text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">开放 API</h3>
+                    <p class="text-gray-600">
+                        为开发者和合作伙伴提供开放 API 接口，支持第三方应用和服务的集成，扩展平台生态。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作伙伴 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">合作伙伴</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    MOLX 平台与众多行业领先企业和机构建立了战略合作关系，共同推动区块链技术的应用和创新。
+                </p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <div class="partner-card bg-white rounded-xl shadow-md p-6 flex flex-col items-center transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="合作伙伴" class="w-24 h-24 object-contain mb-4">
+                    <h3 class="text-lg font-bold text-center">中国移动</h3>
+                    <p class="text-gray-600 text-center text-sm">通信服务合作伙伴</p>
+                </div>
+                
+                <div class="partner-card bg-white rounded-xl shadow-md p-6 flex flex-col items-center transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="合作伙伴" class="w-24 h-24 object-contain mb-4">
+                    <h3 class="text-lg font-bold text-center">中国银行</h3>
+                    <p class="text-gray-600 text-center text-sm">金融服务合作伙伴</p>
+                </div>
+                
+                <div class="partner-card bg-white rounded-xl shadow-md p-6 flex flex-col items-center transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="合作伙伴" class="w-24 h-24 object-contain mb-4">
+                    <h3 class="text-lg font-bold text-center">万科集团</h3>
+                    <p class="text-gray-600 text-center text-sm">房地产合作伙伴</p>
+                </div>
+                
+                <div class="partner-card bg-white rounded-xl shadow-md p-6 flex flex-col items-center transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="合作伙伴" class="w-24 h-24 object-contain mb-4">
+                    <h3 class="text-lg font-bold text-center">阿里巴巴</h3>
+                    <p class="text-gray-600 text-center text-sm">电商合作伙伴</p>
+                </div>
+                
+                <div class="partner-card bg-white rounded-xl shadow-md p-6 flex flex-col items-center transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="合作伙伴" class="w-24 h-24 object-contain mb-4">
+                    <h3 class="text-lg font-bold text-center">腾讯</h3>
+                    <p class="text-gray-600 text-center text-sm">社交媒体合作伙伴</p>
+                </div>
+                
+                <div class="partner-card bg-white rounded-xl shadow-md p-6 flex flex-col items-center transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="合作伙伴" class="w-24 h-24 object-contain mb-4">
+                    <h3 class="text-lg font-bold text-center">德勤</h3>
+                    <p class="text-gray-600 text-center text-sm">审计合作伙伴</p>
+                </div>
+                
+                <div class="partner-card bg-white rounded-xl shadow-md p-6 flex flex-col items-center transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="合作伙伴" class="w-24 h-24 object-contain mb-4">
+                    <h3 class="text-lg font-bold text-center">微软</h3>
+                    <p class="text-gray-600 text-center text-sm">技术合作伙伴</p>
+                </div>
+                
+                <div class="partner-card bg-white rounded-xl shadow-md p-6 flex flex-col items-center transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="合作伙伴" class="w-24 h-24 object-contain mb-4">
+                    <h3 class="text-lg font-bold text-center">普华永道</h3>
+                    <p class="text-gray-600 text-center text-sm">咨询合作伙伴</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 加入生态系统 -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">加入 MOLX 生态系统</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    无论您是企业、开发者还是资产方，都可以成为 MOLX 生态系统的一部分，共同创造价值。
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-building text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">企业合作</h3>
+                    <p class="text-gray-600 mb-6">
+                        接入 MOLX 平台，将您的忠诚度积分上链，或将企业资产代币化，提升用户参与度和资产流动性。
+                    </p>
+                    <a href="join-us.html" class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        了解更多
+                    </a>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-code text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">开发者接入</h3>
+                    <p class="text-gray-600 mb-6">
+                        利用 MOLX 开放 API 和开发工具，构建创新应用和服务，扩展平台功能和用例。
+                    </p>
+                    <a href="join-us.html" class="inline-block px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                        了解更多
+                    </a>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-university text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">资产方接入</h3>
+                    <p class="text-gray-600 mb-6">
+                        将您的资产代币化，获得更高的流动性和更广泛的投资者基础，实现资产价值最大化。
+                    </p>
+                    <a href="join-us.html" class="inline-block px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                        了解更多
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 号召行动 -->
+    <section class="py-20 gradient-bg text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">成为 MOLX 生态系统的一部分</h2>
+            <p class="text-xl max-w-3xl mx-auto mb-10">
+                加入 MOLX 生态系统，共同探索区块链技术的无限可能，创造更大的价值。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="user-center.html" class="px-8 py-4 rounded-lg bg-white text-blue-600 text-center font-medium hover:bg-gray-100 transition-colors">
+                    立即注册
+                </a>
+                <a href="join-us.html" class="px-8 py-4 rounded-lg border-2 border-white text-white text-center font-medium hover:bg-white hover:text-blue-600 transition-colors">
+                    合作咨询
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">MOLX</h3>
+                    <p class="text-gray-400">
+                        亚洲首个完全合规的去中心化现实世界资产平台，致力于通过区块链技术重塑忠诚度积分与资产管理的未来。
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">快速链接</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">平台介绍</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">产品信息</a></li>
+                        <li><a href="ecosystem.html" class="text-gray-400 hover:text-white transition-colors">生态系统</a></li>
+                        <li><a href="asset-market.html" class="text-gray-400 hover:text-white transition-colors">资产市场</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-gray-400"></i>
+                            <a href="mailto:info@molx.io" class="text-gray-400 hover:text-white transition-colors">info@molx.io</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">亚洲金融中心</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">关注我们</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-twitter text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-telegram-plane text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-medium-m text-white"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 MOLX. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 选项卡切换功能
+        const tabLoyalty = document.getElementById('tab-loyalty');
+        const tabRwa = document.getElementById('tab-rwa');
+        const loyaltyContent = document.getElementById('loyalty-content');
+        const rwaContent = document.getElementById('rwa-content');
+
+        tabLoyalty.addEventListener('click', () => {
+            tabLoyalty.classList.add('tab-active');
+            tabLoyalty.classList.remove('text-gray-500');
+            tabRwa.classList.remove('tab-active');
+            tabRwa.classList.add('text-gray-500');
+            loyaltyContent.classList.remove('hidden');
+            rwaContent.classList.add('hidden');
+        });
+
+        tabRwa.addEventListener('click', () => {
+            tabRwa.classList.add('tab-active');
+            tabRwa.classList.remove('text-gray-500');
+            tabLoyalty.classList.remove('tab-active');
+            tabLoyalty.classList.add('text-gray-500');
+            rwaContent.classList.remove('hidden');
+            loyaltyContent.classList.add('hidden');
+        });
+
+        // 移动端菜单
+        const menuButton = document.querySelector('button.md\\:hidden');
+        const mobileMenu = document.createElement('div');
+        mobileMenu.className = 'fixed inset-0 bg-black bg-opacity-50 z-20 hidden';
+        document.body.appendChild(mobileMenu);
+
+        const menuContent = document.createElement('div');
+        menuContent.className = 'fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-30 transform translate-x-full transition-transform duration-300';
+        menuContent.innerHTML = `
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600">MOLX</a>
+                    <button class="focus:outline-none">
+                        <i class="fas fa-times text-gray-600 text-xl"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="hover:text-blue-600 transition-colors">首页</a>
+                    <a href="about.html" class="hover:text-blue-600 transition-colors">平台介绍</a>
+                    <a href="products.html" class="text-blue-600 font-medium">产品信息</a>
+                    <a href="ecosystem.html" class="hover:text-blue-600 transition-colors">生态系统</a>
+                    <a href="asset-market.html" class="hover:text-blue-600 transition-colors">资产市场</a>
+                    <a href="join-us.html" class="hover:text-blue-600 transition-colors">加入我们</a>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(menuContent);
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            menuContent.classList.remove('translate-x-full');
+        });
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuContent.classList.add('translate-x-full');
+        });
+
+        menuContent.querySelector('button').addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuContent.classList.add('translate-x-full');
+        });
+    </script>
+</body>
+</html>
+            

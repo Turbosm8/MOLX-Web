@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户中心 - MOLX</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+        .auth-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        .tab-active {
+            color: #3b82f6;
+            border-bottom: 2px solid #3b82f6;
+        }
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="text-2xl font-bold text-blue-600">MOLX</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="hover:text-blue-600 transition-colors">首页</a>
+                <a href="about.html" class="hover:text-blue-600 transition-colors">平台介绍</a>
+                <a href="products.html" class="hover:text-blue-600 transition-colors">产品信息</a>
+                <a href="ecosystem.html" class="hover:text-blue-600 transition-colors">生态系统</a>
+                <a href="asset-market.html" class="hover:text-blue-600 transition-colors">资产市场</a>
+                <a href="join-us.html" class="hover:text-blue-600 transition-colors">加入我们</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="user-center.html" class="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors">登录/注册</a>
+                <button class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars text-blue-600 text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 登录/注册区域 -->
+    <section class="min-h-screen gradient-bg flex items-center justify-center py-20" id="auth-section">
+        <div class="container mx-auto px-6">
+            <div class="max-w-md mx-auto auth-card rounded-xl shadow-xl overflow-hidden">
+                <div class="flex">
+                    <button id="tab-login" class="w-1/2 py-4 text-center font-medium tab-active">登录</button>
+                    <button id="tab-register" class="w-1/2 py-4 text-center font-medium text-gray-500">注册</button>
+                </div>
+                
+                <!-- 登录表单 -->
+                <div id="login-form" class="p-8">
+                    <h2 class="text-2xl font-bold mb-6">欢迎回来</h2>
+                    <form>
+                        <div class="mb-6">
+                            <label for="login-email" class="block text-gray-700 mb-2">电子邮箱</label>
+                            <input type="email" id="login-email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="请输入您的电子邮箱">
+                        </div>
+                        <div class="mb-6">
+                            <label for="login-password" class="block text-gray-700 mb-2">密码</label>
+                            <input type="password" id="login-password" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="请输入您的密码">
+                        </div>
+                        <div class="flex justify-between items-center mb-6">
+                            <div class="flex items-center">
+                                <input type="checkbox" id="remember-me" class="mr-2">
+                                <label for="remember-me" class="text-gray-600">记住我</label>
+                            </div>
+                            <a href="#" class="text-blue-600 hover:underline">忘记密码？</a>
+                        </div>
+                        <button type="button" onclick="showDashboard()" class="w-full py-3 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors">登录</button>
+                    </form>
+                    <div class="mt-8">
+                        <p class="text-center text-gray-600 mb-4">或通过以下方式登录</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
+                                <i class="fab fa-google text-gray-600"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
+                                <i class="fab fa-apple text-gray-600"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
+                                <i class="fab fa-weixin text-gray-600"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 注册表单 -->
+                <div id="register-form" class="p-8 hidden">
+                    <h2 class="text-2xl font-bold mb-6">创建账户</h2>
+                    <form>
+                        <div class="mb-6">
+                            <label for="register-name" class="block text-gray-700 mb-2">姓名</label>
+                            <input type="text" id="register-name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="请输入您的姓名">
+                        </div>
+                        <div class="mb-6">
+                            <label for="register-email" class="block text-gray-700 mb-2">电子邮箱</label>
+                            <input type="email" id="register-email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="请输入您的电子邮箱">
+                        </div>
+                        <div class="mb-6">
+                            <label for="register-password" class="block text-gray-700 mb-2">密码</label>
+                            <input type="password" id="register-password" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="请设置您的密码">
+                        </div>
+                        <div class="mb-6">
+                            <label for="register-confirm-password" class="block text-gray-700 mb-2">确认密码</label>
+                            <input type="password" id="register-confirm-password" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="请再次输入您的密码">
+                        </div>
+                        <div class="flex items-center mb-6">
+                            <input type="checkbox" id="agree-terms" class="mr-2">
+                            <label for="agree-terms" class="text-gray-600">我同意 <a href="#" class="text-blue-600 hover:underline">服务条款</a> 和 <a href="#" class="text-blue-600 hover:underline">隐私政策</a></label>
+                        </div>
+                        <button type="button" onclick="showDashboard()" class="w-full py-3 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors">注册</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 用户仪表盘 -->
+    <section class="min-h-screen py-20 hidden" id="dashboard-section">
+        <div class="container mx-auto px-6 pt-20">
+            <!-- 用户信息 -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="w-24 h-24 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white text-3xl font-bold mb-4 md:mb-0 md:mr-6">
+                        张
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold mb-2">张先生</h2>
+                        <p class="text-gray-600 mb-2">zhang@example.com</p>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mr-2">
+                                VIP 会员
+                            </div>
+                            <div class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                                已认证
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ml-auto mt-4 md:mt-0">
+                        <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors">
+                            <i class="fas fa-cog mr-2"></i>设置
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 积分概览 -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h3 class="text-xl font-bold mb-6">积分概览</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-blue-50 rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-lg font-semibold text-blue-800">可用积分</h4>
+                            <i class="fas fa-coins text-blue-500 text-xl"></i>
+                        </div>
+                        <p class="text-3xl font-bold text-blue-600">12,580</p>
+                        <p class="text-sm text-blue-600 mt-2">≈ 1,258 USDT</p>
+                    </div>
+                    <div class="bg-purple-50 rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-lg font-semibold text-purple-800">锁定积分</h4>
+                            <i class="fas fa-lock text-purple-500 text-xl"></i>
+                        </div>
+                        <p class="text-3xl font-bold text-purple-600">3,200</p>
+                        <p class="text-sm text-purple-600 mt-2">≈ 320 USDT</p>
+                    </div>
+                    <div class="bg-green-50 rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-lg font-semibold text-green-800">本月获得</h4>
+                            <i class="fas fa-chart-line text-green-500 text-xl"></i>
+                        </div>
+                        <p class="text-3xl font-bold text-green-600">1,450</p>
+                        <p class="text-sm text-green-600 mt-2">较上月 +15%</p>
+                    </div>
+                </div>
+                <div class="mt-6 flex justify-end space-x-4">
+                    <button class="px-4 py-2 border border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+                        <i class="fas fa-exchange-alt mr-2"></i>兑换
+                    </button>
+                    <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        <i class="fas fa-wallet mr-2"></i>转账
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 积分活动 -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h3 class="text-xl font-bold mb-6">积分活动</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full">
+                        <thead>
+                            <tr class="border-b border-gray-200">
+                                <th class="py-3 px-4 text-left text-gray-700">活动类型</th>
+                                <th class="py-3 px-4 text-left text-gray-700">积分变动</th>
+                                <th class="py-3 px-4 text-left text-gray-700">时间</th>
+                                <th class="py-3 px-4 text-left text-gray-700">状态</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-3 px-4">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                                            <i class="fas fa-shopping-cart text-blue-600"></i>
+                                        </div>
+                                        <span>购物消费</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-4 text-green-600">+580</td>
+                                <td class="py-3 px-4 text-gray-600">2023-06-15 14:30</td>
+                                <td class="py-3 px-4"><span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">已完成</span></td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-3 px-4">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center mr-3">
+                                            <i class="fas fa-user-plus text-purple-600"></i>
+                                        </div>
+                                        <span>邀请好友</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-4 text-green-600">+1000</td>
+                                <td class="py-3 px-4 text-gray-600">2023-06-10 09:15</td>
+                                <td class="py-3 px-4"><span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">已完成</span></td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-3 px-4">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mr-3">
+                                            <i class="fas fa-exchange-alt text-yellow-600"></i>
+                                        </div>
+                                        <span>积分兑换</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-4 text-red-600">-2000</td>
+                                <td class="py-3 px-4 text-gray-600">2023-06-05 16:45</td>
+                                <td class="py-3 px-4"><span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">已完成</span></td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-3 px-4">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                                            <i class="fas fa-share-alt text-green-600"></i>
+                                        </div>
+                                        <span>分享内容</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-4 text-green-600">+150</td>
+                                <td class="py-3 px-4 text-gray-600">2023-06-01 11:20</td>
+                                <td class="py-3 px-4"><span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">已完成</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-6 flex justify-center">
+                    <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors">
+                        查看更多
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 积分获取方式 -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h3 class="text-xl font-bold mb-6">获取更多积分</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="dashboard-card bg-white border border-gray-200 rounded-lg p-6 transition-all duration-300">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                            <i class="fas fa-shopping-bag text-blue-600 text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-2">消费获取</h4>
+                        <p class="text-gray-600 mb-4">在合作商家消费，获得消费金额 5-10% 的积分返还。</p>
+                        <a href="#" class="text-blue-600 hover:underline flex items-center">
+                            查看合作商家 <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="dashboard-card bg-white border border-gray-200 rounded-lg p-6 transition-all duration-300">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mb-4">
+                            <i class="fas fa-user-friends text-purple-600 text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-2">邀请好友</h4>
+                        <p class="text-gray-600 mb-4">邀请好友注册并完成认证，双方各获得 1000 积分奖励。</p>
+                        <a href="#" class="text-purple-600 hover:underline flex items-center">
+                            立即邀请 <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="dashboard-card bg-white border border-gray-200 rounded-lg p-6 transition-all duration-300">
+                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                            <i class="fas fa-tasks text-green-600 text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-2">完成任务</h4>
+                        <p class="text-gray-600 mb-4">完成平台每日任务，包括签到、分享内容、参与活动等。</p>
+                        <a href="#" class="text-green-600 hover:underline flex items-center">
+                            查看任务 <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">MOLX</h3>
+                    <p class="text-gray-400">
+                        亚洲首个完全合规的去中心化现实世界资产平台，致力于通过区块链技术重塑忠诚度积分与资产管理的未来。
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">快速链接</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">平台介绍</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">产品信息</a></li>
+                        <li><a href="ecosystem.html" class="text-gray-400 hover:text-white transition-colors">生态系统</a></li>
+                        <li><a href="asset-market.html" class="text-gray-400 hover:text-white transition-colors">资产市场</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-gray-400"></i>
+                            <a href="mailto:info@molx.io" class="text-gray-400 hover:text-white transition-colors">info@molx.io</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">亚洲金融中心</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">关注我们</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-twitter text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-telegram-plane text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-medium-m text-white"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 MOLX. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 选项卡切换功能
+        const tabLogin = document.getElementById('tab-login');
+        const tabRegister = document.getElementById('tab-register');
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        const authSection = document.getElementById('auth-section');
+        const dashboardSection = document.getElementById('dashboard-section');
+
+        tabLogin.addEventListener('click', () => {
+            tabLogin.classList.add('tab-active');
+            tabLogin.classList.remove('text-gray-500');
+            tabRegister.classList.remove('tab-active');
+            tabRegister.classList.add('text-gray-500');
+            loginForm.classList.remove('hidden');
+            registerForm.classList.add('hidden');
+        });
+
+        tabRegister.addEventListener('click', () => {
+            tabRegister.classList.add('tab-active');
+            tabRegister.classList.remove('text-gray-500');
+            tabLogin.classList.remove('tab-active');
+            tabLogin.classList.add('text-gray-500');
+            registerForm.classList.remove('hidden');
+            loginForm.classList.add('hidden');
+        });
+
+        // 显示仪表盘
+        function showDashboard() {
+            authSection.classList.add('hidden');
+            dashboardSection.classList.remove('hidden');
+        }
+
+        // 移动端菜单
+        const menuButton = document.querySelector('button.md\\:hidden');
+        const mobileMenu = document.createElement('div');
+        mobileMenu.className = 'fixed inset-0 bg-black bg-opacity-50 z-20 hidden';
+        document.body.appendChild(mobileMenu);
+
+        const menuContent = document.createElement('div');
+        menuContent.className = 'fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-30 transform translate-x-full transition-transform duration-300';
+        menuContent.innerHTML = `
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600">MOLX</a>
+                    <button class="focus:outline-none">
+                        <i class="fas fa-times text-gray-600 text-xl"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="hover:text-blue-600 transition-colors">首页</a>
+                    <a href="about.html" class="hover:text-blue-600 transition-colors">平台介绍</a>
+                    <a href="products.html" class="hover:text-blue-600 transition-colors">产品信息</a>
+                    <a href="ecosystem.html" class="hover:text-blue-600 transition-colors">生态系统</a>
+                    <a href="asset-market.html" class="hover:text-blue-600 transition-colors">资产市场</a>
+                    <a href="join-us.html" class="hover:text-blue-600 transition-colors">加入我们</a>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(menuContent);
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            menuContent.classList.remove('translate-x-full');
+        });
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuContent.classList.add('translate-x-full');
+        });
+
+        menuContent.querySelector('button').addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuContent.classList.add('translate-x-full');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资产市场 - MOLX</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+        .asset-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .filter-active {
+            background-color: #3b82f6;
+            color: white;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="text-2xl font-bold text-blue-600">MOLX</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="hover:text-blue-600 transition-colors">首页</a>
+                <a href="about.html" class="hover:text-blue-600 transition-colors">平台介绍</a>
+                <a href="products.html" class="hover:text-blue-600 transition-colors">产品信息</a>
+                <a href="ecosystem.html" class="hover:text-blue-600 transition-colors">生态系统</a>
+                <a href="asset-market.html" class="text-blue-600 font-medium">资产市场</a>
+                <a href="join-us.html" class="hover:text-blue-600 transition-colors">加入我们</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="user-center.html" class="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors">登录/注册</a>
+                <button class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars text-blue-600 text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 市场概览 -->
+    <section class="pt-32 pb-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl font-bold mb-4">资产市场</h1>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    探索多元化的现实世界资产（RWA）投资机会，通过区块链技术实现资产的部分所有权和流动性。
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-blue-50 rounded-xl p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-blue-800">总资产价值</h3>
+                        <i class="fas fa-chart-pie text-blue-500 text-xl"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-blue-600">$128.5M</p>
+                    <p class="text-sm text-blue-600 mt-2">较上月 +5.2%</p>
+                </div>
+                <div class="bg-purple-50 rounded-xl p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-purple-800">资产数量</h3>
+                        <i class="fas fa-building text-purple-500 text-xl"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-purple-600">86</p>
+                    <p class="text-sm text-purple-600 mt-2">本月新增 12 个</p>
+                </div>
+                <div class="bg-green-50 rounded-xl p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-green-800">投资者数量</h3>
+                        <i class="fas fa-users text-green-500 text-xl"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-green-600">12,450</p>
+                    <p class="text-sm text-green-600 mt-2">较上月 +15.3%</p>
+                </div>
+                <div class="bg-yellow-50 rounded-xl p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-yellow-800">平均年化收益</h3>
+                        <i class="fas fa-percentage text-yellow-500 text-xl"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-yellow-600">8.6%</p>
+                    <p class="text-sm text-yellow-600 mt-2">较上月 +0.4%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 资产筛选和列表 -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <!-- 筛选器 -->
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                    <h2 class="text-2xl font-bold mb-4 md:mb-0">浏览资产</h2>
+                    <div class="flex flex-wrap gap-2">
+                        <button class="filter-active px-4 py-2 rounded-md transition-colors">
+                            全部
+                        </button>
+                        <button class="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-md transition-colors">
+                            房地产
+                        </button>
+                        <button class="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-md transition-colors">
+                            债券
+                        </button>
+                        <button class="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-md transition-colors">
+                            艺术品
+                        </button>
+                        <button class="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-md transition-colors">
+                            商业资产
+                        </button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label for="location" class="block text-gray-700 mb-2">地区</label>
+                        <select id="location" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option value="">全部地区</option>
+                            <option value="beijing">北京</option>
+                            <option value="shanghai">上海</option>
+                            <option value="guangzhou">广州</option>
+                            <option value="shenzhen">深圳</option>
+                            <option value="overseas">海外</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="price" class="block text-gray-700 mb-2">价格范围</label>
+                        <select id="price" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option value="">全部价格</option>
+                            <option value="0-1000">0-1,000 USDT</option>
+                            <option value="1000-5000">1,000-5,000 USDT</option>
+                            <option value="5000-10000">5,000-10,000 USDT</option>
+                            <option value="10000+">10,000+ USDT</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="return" class="block text-gray-700 mb-2">预期收益</label>
+                        <select id="return" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option value="">全部收益率</option>
+                            <option value="0-5">0-5%</option>
+                            <option value="5-10">5-10%</option>
+                            <option value="10-15">10-15%</option>
+                            <option value="15+">15%+</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 资产列表 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 资产卡片 1 -->
+                <div class="asset-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80" alt="商业地产" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            房地产
+                        </div>
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            融资中
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">上海浦东商业广场</h3>
+                        <p class="text-gray-600 mb-4">位于上海浦东新区的高端商业广场，总建筑面积 25,000 平方米，出租率 95%。</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <p class="text-gray-500 text-sm">单价</p>
+                                <p class="text-lg font-semibold">100 USDT</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-sm">预期年化收益</p>
+                                <p class="text-lg font-semibold text-green-600">8.5%</p>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-600">融资进度: 78%</span>
+                                <span class="text-sm text-gray-600">7.8M / 10M</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 78%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between">
+                            <button class="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+                                详情
+                            </button>
+                            <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                                投资
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 资产卡片 2 -->
+                <div class="asset-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="企业债券" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            债券
+                        </div>
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            融资中
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">科技企业债券组合</h3>
+                        <p class="text-gray-600 mb-4">由多家优质科技企业发行的债券组合，平均期限 3 年，信用评级 AA。</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <p class="text-gray-500 text-sm">单价</p>
+                                <p class="text-lg font-semibold">500 USDT</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-sm">预期年化收益</p>
+                                <p class="text-lg font-semibold text-green-600">6.8%</p>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-600">融资进度: 45%</span>
+                                <span class="text-sm text-gray-600">2.25M / 5M</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-600 h-2 rounded-full" style="width: 45%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between">
+                            <button class="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+                                详情
+                            </button>
+                            <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                                投资
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 资产卡片 3 -->
+                <div class="asset-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="艺术品" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-yellow-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            艺术品
+                        </div>
+                        <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            已完成
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">当代艺术收藏</h3>
+                        <p class="text-gray-600 mb-4">精选当代艺术家作品组合，包括绘画、雕塑和数字艺术，由专业艺术顾问管理。</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <p class="text-gray-500 text-sm">单价</p>
+                                <p class="text-lg font-semibold">1,000 USDT</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-sm">预期年化收益</p>
+                                <p class="text-lg font-semibold text-green-600">12.5%</p>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-600">融资进度: 100%</span>
+                                <span class="text-sm text-gray-600">3M / 3M</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-yellow-600 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between">
+                            <button class="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+                                详情
+                            </button>
+                            <button class="px-4 py-2 bg-gray-300 text-gray-600 rounded-lg cursor-not-allowed">
+                                已售罄
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 资产卡片 4 -->
+                <div class="asset-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1582281171754-405cb2a75fb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="商业资产" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            商业资产
+                        </div>
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            融资中
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">连锁酒店品牌</h3>
+                        <p class="text-gray-600 mb-4">知名连锁酒店品牌在全国 15 个城市的 30 家酒店资产组合，平均入住率 85%。</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <p class="text-gray-500 text-sm">单价</p>
+                                <p class="text-lg font-semibold">200 USDT</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-sm">预期年化收益</p>
+                                <p class="text-lg font-semibold text-green-600">9.2%</p>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-600">融资进度: 62%</span>
+                                <span class="text-sm text-gray-600">9.3M / 15M</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-600 h-2 rounded-full" style="width: 62%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between">
+                            <button class="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+                                详情
+                            </button>
+                            <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                                投资
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 资产卡片 5 -->
+                <div class="asset-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80" alt="房地产" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            房地产
+                        </div>
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            融资中
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">北京中央商务区写字楼</h3>
+                        <p class="text-gray-600 mb-4">位于北京 CBD 核心区的甲级写字楼，总建筑面积 18,000 平方米，出租率 92%。</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <p class="text-gray-500 text-sm">单价</p>
+                                <p class="text-lg font-semibold">300 USDT</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-sm">预期年化收益</p>
+                                <p class="text-lg font-semibold text-green-600">7.8%</p>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-600">融资进度: 35%</span>
+                                <span class="text-sm text-gray-600">7M / 20M</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 35%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between">
+                            <button class="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+                                详情
+                            </button>
+                            <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                                投资
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 资产卡片 6 -->
+                <div class="asset-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="债券" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            债券
+                        </div>
+                        <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            已完成
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">绿色能源项目债券</h3>
+                        <p class="text-gray-600 mb-4">投资于太阳能和风能发电项目的绿色债券，期限 5 年，由国家能源集团担保。</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <p class="text-gray-500 text-sm">单价</p>
+                                <p class="text-lg font-semibold">100 USDT</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-sm">预期年化收益</p>
+                                <p class="text-lg font-semibold text-green-600">5.5%</p>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-600">融资进度: 100%</span>
+                                <span class="text-sm text-gray-600">8M / 8M</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-600 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between">
+                            <button class="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+                                详情
+                            </button>
+                            <button class="px-4 py-2 bg-gray-300 text-gray-600 rounded-lg cursor-not-allowed">
+                                已售罄
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+                        <!-- 分页 -->
+                        <div class="mt-12 flex justify-center">
+                            <nav class="flex items-center">
+                                <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 mr-2 hover:bg-gray-100 transition-colors">
+                                    <i class="fas fa-chevron-left text-gray-600"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white mr-2">1</a>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 mr-2 hover:bg-gray-100 transition-colors">2</a>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 mr-2 hover:bg-gray-100 transition-colors">3</a>
+                                <span class="mx-2 text-gray-600">...</span>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 mr-2 hover:bg-gray-100 transition-colors">8</a>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 hover:bg-gray-100 transition-colors">
+                                    <i class="fas fa-chevron-right text-gray-600"></i>
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </section>
+            
+                <!-- 投资流程 -->
+                <section class="py-20 bg-white">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center mb-16">
+                            <h2 class="text-3xl font-bold mb-4">投资流程</h2>
+                            <p class="text-gray-600 max-w-2xl mx-auto">
+                                通过 MOLX 平台投资现实世界资产，简单便捷，全程透明。
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                                    <i class="fas fa-user-plus text-blue-600 text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-4">注册账户</h3>
+                                <p class="text-gray-600">
+                                    完成注册并通过 KYC 身份验证，确保平台合规和安全。
+                                </p>
+                            </div>
+                            
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                                    <i class="fas fa-search text-blue-600 text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-4">选择资产</h3>
+                                <p class="text-gray-600">
+                                    浏览多元化的资产选项，查看详细信息和预期收益，选择符合您投资目标的资产。
+                                </p>
+                            </div>
+                            
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                                    <i class="fas fa-wallet text-blue-600 text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-4">完成投资</h3>
+                                <p class="text-gray-600">
+                                    确认投资金额，连接您的区块链钱包，完成资产代币的购买。
+                                </p>
+                            </div>
+                            
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                                    <i class="fas fa-chart-line text-blue-600 text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-4">管理收益</h3>
+                                <p class="text-gray-600">
+                                    在用户中心实时监控您的投资组合，查看收益分配，并可随时交易您的资产代币。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            
+                <!-- 常见问题 -->
+                <section class="py-20 bg-gray-50">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center mb-16">
+                            <h2 class="text-3xl font-bold mb-4">常见问题</h2>
+                            <p class="text-gray-600 max-w-2xl mx-auto">
+                                了解更多关于 MOLX 平台资产投资的常见问题和解答。
+                            </p>
+                        </div>
+                        <div class="max-w-3xl mx-auto space-y-6">
+                            <!-- FAQ 项目 1 -->
+                            <div class="bg-white rounded-xl p-6">
+                                <button class="flex justify-between items-center w-full text-left focus:outline-none">
+                                    <h3 class="text-lg font-semibold">如何开始在 MOLX 平台投资？</h3>
+                                    <i class="fas fa-chevron-down text-blue-600"></i>
+                                </button>
+                                <div class="mt-4">
+                                    <p class="text-gray-600">
+                                        首先需要注册 MOLX 账户并完成 KYC 身份验证，然后连接您的区块链钱包，充值资金后即可开始浏览和投资平台上的资产。整个过程简单直观，我们提供详细的指导和客户支持。
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- FAQ 项目 2 -->
+                            <div class="bg-white rounded-xl p-6">
+                                <button class="flex justify-between items-center w-full text-left focus:outline-none">
+                                    <h3 class="text-lg font-semibold">MOLX 平台如何确保资产的真实性和安全性？</h3>
+                                    <i class="fas fa-chevron-down text-blue-600"></i>
+                                </button>
+                                <div class="mt-4">
+                                    <p class="text-gray-600">
+                                        MOLX 平台对所有上链资产进行严格的尽职调查和法律审核，确保资产的真实性和合法性。我们与专业的审计和评估机构合作，对资产进行独立评估。同时，所有交易都在区块链上记录，确保透明度和不可篡改性。
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- FAQ 项目 3 -->
+                            <div class="bg-white rounded-xl p-6">
+                                <button class="flex justify-between items-center w-full text-left focus:outline-none">
+                                    <h3 class="text-lg font-semibold">投资者如何获得收益？</h3>
+                                    <i class="fas fa-chevron-down text-blue-600"></i>
+                                </button>
+                                <div class="mt-4">
+                                    <p class="text-gray-600">
+                                        投资者可以通过两种方式获得收益：一是资产产生的定期收益（如租金、利息等），这些收益会按持有比例分配给投资者；二是资产价值增长带来的资本收益，投资者可以在二级市场上交易资产代币，实现价值增长。
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- FAQ 项目 4 -->
+                            <div class="bg-white rounded-xl p-6">
+                                <button class="flex justify-between items-center w-full text-left focus:outline-none">
+                                    <h3 class="text-lg font-semibold">投资的最低金额是多少？</h3>
+                                    <i class="fas fa-chevron-down text-blue-600"></i>
+                                </button>
+                                <div class="mt-4">
+                                    <p class="text-gray-600">
+                                        MOLX 平台的最低投资金额因资产而异，通常从 100 USDT 起，这大大降低了投资门槛，使更多人能够参与到优质资产的投资中。您可以根据自己的投资预算和风险偏好，灵活选择投资金额。
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- FAQ 项目 5 -->
+                            <div class="bg-white rounded-xl p-6">
+                                <button class="flex justify-between items-center w-full text-left focus:outline-none">
+                                    <h3 class="text-lg font-semibold">如何退出投资？</h3>
+                                    <i class="fas fa-chevron-down text-blue-600"></i>
+                                </button>
+                                <div class="mt-4">
+                                    <p class="text-gray-600">
+                                        投资者可以随时在 MOLX 平台的二级市场上出售自己的资产代币，实现投资退出。平台提供流动性支持，确保投资者能够便捷地交易资产代币。对于某些资产，也可能有预设的投资期限和退出机制。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            
+                <!-- 号召行动 -->
+                <section class="py-20 gradient-bg text-white">
+                    <div class="container mx-auto px-6 text-center">
+                        <h2 class="text-3xl font-bold mb-6">开始您的资产投资之旅</h2>
+                        <p class="text-xl max-w-3xl mx-auto mb-10">
+                            通过 MOLX 平台，以小额投资参与全球优质资产，享受区块链技术带来的便捷和透明。
+                        </p>
+                        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                            <a href="user-center.html" class="px-8 py-4 rounded-lg bg-white text-blue-600 text-center font-medium hover:bg-gray-100 transition-colors">
+                                立即注册
+                            </a>
+                            <a href="about.html" class="px-8 py-4 rounded-lg border-2 border-white text-white text-center font-medium hover:bg-white hover:text-blue-600 transition-colors">
+                                了解更多
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            
+                <!-- 页脚 -->
+                <footer class="bg-gray-900 text-white py-12">
+                    <div class="container mx-auto px-6">
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                            <div>
+                                <h3 class="text-xl font-bold mb-4">MOLX</h3>
+                                <p class="text-gray-400">
+                                    亚洲首个完全合规的去中心化现实世界资产平台，致力于通过区块链技术重塑忠诚度积分与资产管理的未来。
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-4">快速链接</h3>
+                                <ul class="space-y-2">
+                                    <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                                    <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">平台介绍</a></li>
+                                    <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">产品信息</a></li>
+                                    <li><a href="ecosystem.html" class="text-gray-400 hover:text-white transition-colors">生态系统</a></li>
+                                    <li><a href="asset-market.html" class="text-gray-400 hover:text-white transition-colors">资产市场</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-4">联系我们</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-envelope mr-2 text-gray-400"></i>
+                                        <a href="mailto:info@molx.io" class="text-gray-400 hover:text-white transition-colors">info@molx.io</a>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>
+                                        <span class="text-gray-400">亚洲金融中心</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-4">关注我们</h3>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                                        <i class="fab fa-twitter text-white"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                                        <i class="fab fa-linkedin-in text-white"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                                        <i class="fab fa-telegram-plane text-white"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                                        <i class="fab fa-medium-m text-white"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                            <p>&copy; 2023 MOLX. 保留所有权利。</p>
+                        </div>
+                    </div>
+                </footer>
+            
+                <!-- JavaScript -->
+                <script>
+                    // FAQ 折叠功能
+                    document.querySelectorAll('.bg-white button').forEach(button => {
+                        button.addEventListener('click', () => {
+                            const content = button.nextElementSibling;
+                            const icon = button.querySelector('i');
+                            
+                            if (content.style.display === 'none' || content.style.display === '') {
+                                content.style.display = 'block';
+                                icon.classList.remove('fa-chevron-down');
+                                icon.classList.add('fa-chevron-up');
+                            } else {
+                                content.style.display = 'none';
+                                icon.classList.remove('fa-chevron-up');
+                                icon.classList.add('fa-chevron-down');
+                            }
+                        });
+                    });
+            
+                    // 筛选器功能
+                    document.querySelectorAll('.bg-gray-100').forEach(button => {
+                        button.addEventListener('click', () => {
+                            document.querySelector('.filter-active').classList.remove('filter-active');
+                            document.querySelector('.filter-active').classList.add('bg-gray-100', 'hover:bg-gray-200');
+                            button.classList.remove('bg-gray-100', 'hover:bg-gray-200');
+                            button.classList.add('filter-active');
+                        });
+                    });
+            
+                    // 移动端菜单
+                    const menuButton = document.querySelector('button.md\\:hidden');
+                    const mobileMenu = document.createElement('div');
+                    mobileMenu.className = 'fixed inset-0 bg-black bg-opacity-50 z-20 hidden';
+                    document.body.appendChild(mobileMenu);
+            
+                    const menuContent = document.createElement('div');
+                    menuContent.className = 'fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-30 transform translate-x-full transition-transform duration-300';
+                    menuContent.innerHTML = `
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-8">
+                                <a href="index.html" class="text-2xl font-bold text-blue-600">MOLX</a>
+                                <button class="focus:outline-none">
+                                    <i class="fas fa-times text-gray-600 text-xl"></i>
+                                </button>
+                            </div>
+                            <div class="flex flex-col space-y-4">
+                                <a href="index.html" class="hover:text-blue-600 transition-colors">首页</a>
+                                <a href="about.html" class="hover:text-blue-600 transition-colors">平台介绍</a>
+                                <a href="products.html" class="hover:text-blue-600 transition-colors">产品信息</a>
+                                <a href="ecosystem.html" class="hover:text-blue-600 transition-colors">生态系统</a>
+                                <a href="asset-market.html" class="text-blue-600 font-medium">资产市场</a>
+                                <a href="join-us.html" class="hover:text-blue-600 transition-colors">加入我们</a>
+                            </div>
+                        </div>
+                    `;
+                    document.body.appendChild(menuContent);
+            
+                    menuButton.addEventListener('click', () => {
+                        mobileMenu.classList.remove('hidden');
+                        menuContent.classList.remove('translate-x-full');
+                    });
+            
+                    mobileMenu.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        menuContent.classList.add('translate-x-full');
+                    });
+            
+                    menuContent.querySelector('button').addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        menuContent.classList.add('translate-x-full');
+                    });
+                </script>
+            </body>
+            </html>
