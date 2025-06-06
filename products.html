@@ -599,3 +599,106 @@
     </script>
 </body>
 </html>
+
+<!-- 在现有的三个选项卡后添加第四个选项卡 -->
+<section class="py-10 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="flex justify-center border-b border-gray-200">
+            <button class="px-6 py-3 text-lg font-medium tab-active" id="tab-molx-pay">MOLX Pay</button>
+            <button class="px-6 py-3 text-lg font-medium text-gray-500" id="tab-loyalty">Web3 忠诚度积分</button>
+            <button class="px-6 py-3 text-lg font-medium text-gray-500" id="tab-rwa">RWA 代币化</button>
+            <button class="px-6 py-3 text-lg font-medium text-gray-500" id="tab-social">Social-To-Earn</button>
+        </div>
+    </div>
+</section>
+
+<!-- 添加Social-To-Earn内容部分 -->
+<section class="py-16 bg-white hidden" id="social-content">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row items-center mb-20">
+            <div class="lg:w-1/2 mb-10 lg:mb-0">
+                <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2339&q=80" alt="Social-To-Earn" class="rounded-xl shadow-lg">
+            </div>
+            <div class="lg:w-1/2 lg:pl-16">
+                <h2 class="text-3xl font-bold mb-6">Social-To-Earn 模式</h2>
+                <p class="text-gray-600 mb-6 text-lg">
+                    通过社交互动获得奖励，创建内容、分享体验，将社交价值转化为实际收益。MOLX平台让您的每一次社交活动都能创造价值。
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="w-6 h-6 rounded-full bg-green-600 flex items-center justify-center">
+                                <i class="fas fa-check text-white text-sm"></i>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-gray-600">创建优质内容获得积分奖励</p>
+                        </div>
+                    </li>
+                    <li class="flex">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="w-6 h-6 rounded-full bg-green-600 flex items-center justify-center">
+                                <i class="fas fa-check text-white text-sm"></i>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-gray-600">分享体验和推荐获得收益分成</p>
+                        </div>
+                    </li>
+                    <li class="flex">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="w-6 h-6 rounded-full bg-green-600 flex items-center justify-center">
+                                <i class="fas fa-check text-white text-sm"></i>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-gray-600">参与社区治理获得治理代币</p>
+                        </div>
+                    </li>
+                    <li class="flex">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="w-6 h-6 rounded-full bg-green-600 flex items-center justify-center">
+                                <i class="fas fa-check text-white text-sm"></i>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-gray-600">社交影响力转化为经济价值</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+            <div class="product-card bg-white rounded-xl shadow-lg p-8 transition-all duration-300">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                    <i class="fas fa-edit text-green-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">内容创作</h3>
+                <p class="text-gray-600">
+                    创建高质量的内容，包括文章、视频、图片等，根据内容的质量和受欢迎程度获得相应的积分奖励。
+                </p>
+            </div>
+            
+            <div class="product-card bg-white rounded-xl shadow-lg p-8 transition-all duration-300">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                    <i class="fas fa-share-alt text-blue-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">社交分享</h3>
+                <p class="text-gray-600">
+                    分享平台内容到社交媒体，推荐朋友加入平台，根据分享效果和推荐成功率获得奖励。
+                </p>
+            </div>
+            
+            <div class="product-card bg-white rounded-xl shadow-lg p-8 transition-all duration-300">
+                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                    <i class="fas fa-vote-yea text-purple-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">社区治理</h3>
+                <p class="text-gray-600">
+                    参与平台治理投票，提出改进建议，为平台发展贡献智慧，获得治理代币和决策权。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
