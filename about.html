@@ -1,501 +1,1397 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>平台介绍 - MOLX</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        .gradient-bg {
-            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
-        }
-        .timeline-container {
-            position: relative;
-        }
-        .timeline-container::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background-color: #e5e7eb;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1px;
-        }
-        .timeline-item {
-            position: relative;
-            z-index: 1;
-        }
-        .timeline-dot {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: #3b82f6;
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>关于我们 - MOLX</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    .gradient-bg {
+      background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    :root {
+      --main-gradient: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+      --main-color: #6366F1;
+      --secondary-color: #8B5CF6;
+      --accent-color: #10B981;
+      --bg-color: #FAFBFC;
+      --text-color: #1F2937;
+      --text-light: #6B7280;
+      --card-bg: #fff;
+      --card-shadow: 0 8px 32px rgba(99, 102, 241, 0.12);
+      --radius: 20px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Banner */
+    .about-banner {
+      background: var(--main-gradient), url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=1200') center/cover no-repeat;
+      color: #fff;
+      padding: 80px 0 60px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-banner::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(40, 40, 80, 0.32);
+      z-index: 1;
+    }
+
+    .about-banner-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .about-banner h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+    }
+
+    .about-banner p {
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+      color: #e0e0e0;
+    }
+
+    .business-lines {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .business-item {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .business-item:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .business-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+
+    .business-icon i {
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    .business-content h4 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .business-content p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.4;
+    }
+
+    /* 品牌故事/愿景/使命 */
+    .vision-section {
+      background: var(--bg-color);
+      padding: 48px 0 32px 0;
+      text-align: center;
+    }
+
+    .vision-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--main-color);
+      margin-bottom: 18px;
+    }
+
+    .vision-content {
+      max-width: 800px;
+      margin: 0 auto;
+      color: #444;
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+
+    /* 核心价值观 */
+    .values-section {
+      background: #fff;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      /* padding: 0 24px; */
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--main-color);
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin-top: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .value-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      padding: 40px 30px;
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid rgba(99, 102, 241, 0.1);
+    }
+
+    .value-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+    }
+
+    .value-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--main-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .value-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 16px;
+    }
+
+    .value-card p {
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* 技术优势 */
+    .tech-section {
+      background: var(--bg-color);
+      padding: 80px 0;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .tech-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      padding: 40px 30px;
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid rgba(99, 102, 241, 0.1);
+    }
+
+    .tech-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+    }
+
+    .tech-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .tech-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 16px;
+    }
+
+    .tech-card p {
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* 合规和安全 */
+    .compliance-section {
+      background: #fff;
+      padding: 80px 0;
+    }
+
+    .compliance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .compliance-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      padding: 40px 30px;
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid rgba(99, 102, 241, 0.1);
+    }
+
+    .compliance-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+    }
+
+    .compliance-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .compliance-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 16px;
+    }
+
+    .compliance-card p {
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* 发展历程/里程碑 */
+    .timeline-section {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      padding: 80px 0;
+    }
+
+    .timeline-list {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      margin-top: 60px;
+      display: flex;
+      overflow-x: auto;
+      padding: 120px 20px;
+      gap: 80px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .timeline-list::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 4px;
+      background: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4, #10b981);
+      border-radius: 2px;
+      z-index: 1;
+    }
+
+    .timeline-item {
+      position: relative;
+      min-width: 280px;
+      max-width: 280px;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.8), 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 3;
+    }
+
+    .timeline-item:nth-child(1)::before {
+      background: #8b5cf6;
+    }
+
+    .timeline-item:nth-child(2)::before {
+      background: #10b981;
+    }
+
+    .timeline-item:nth-child(3)::before {
+      background: #06b6d4;
+    }
+
+    .timeline-item:nth-child(4)::before {
+      background: #8b5cf6;
+    }
+
+    .timeline-item:nth-child(odd) {
+      margin-top: -160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .timeline-item:nth-child(even) {
+      margin-top: 160px;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+
+    .timeline-item:nth-child(odd)::before {
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, 10px);
+    }
+
+    .timeline-item:nth-child(even)::before {
+      bottom: 100%;
+      left: 50%;
+      transform: translate(-50%, -10px);
+    }
+
+    .timeline-date {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #1e293b;
+      margin: 0;
+      z-index: 4;
+      position: relative;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-date {
+      margin-top: 40px;
+      order: 2;
+    }
+
+    .timeline-item:nth-child(even) .timeline-date {
+      margin-bottom: 40px;
+      order: 2;
+    }
+
+    .timeline-content {
+      padding: 24px 20px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+      order: 1;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      order: 1;
+    }
+
+    .timeline-item:nth-child(1) .timeline-content {
+      background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%);
+    }
+
+    .timeline-item:nth-child(2) .timeline-content {
+      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    }
+
+    .timeline-item:nth-child(3) .timeline-content {
+      background: linear-gradient(135deg, #cffafe 0%, #a5f3fc 100%);
+    }
+
+    .timeline-item:nth-child(4) .timeline-content {
+      background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+    }
+
+    .timeline-item:hover {
+      transform: translateY(-12px) scale(1.05);
+    }
+
+    .timeline-item:hover .timeline-content {
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+    }
+
+    .timeline-content h3 {
+      color: #1e293b;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .timeline-content p {
+      color: #475569;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    /* 生态合作伙伴 */
+    .partners-section {
+      background: var(--bg-color);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .partners-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin-bottom: 60px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .partner-category {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      padding: 40px 30px;
+      transition: var(--transition);
+    }
+
+    .partner-category:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+    }
+
+    .partner-category h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--main-color);
+      margin-bottom: 24px;
+    }
+
+    .partner-logos {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .partner-logo {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-weight: 500;
+      color: var(--text-color);
+      transition: var(--transition);
+    }
+
+    .partner-logo:hover {
+      background: var(--main-gradient);
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* 联系我们 */
+    .contact-section {
+      background: #fff;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .contact-groups {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-top: 40px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-group {
+      text-align: center;
+    }
+
+    .group-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--main-color);
+      margin-bottom: 30px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .group-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--main-gradient);
+      border-radius: 2px;
+    }
+
+    .contact-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      padding: 30px 20px;
+      transition: var(--transition);
+      border: 1px solid rgba(99, 102, 241, 0.1);
+      text-align: center;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+    }
+
+    .contact-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--main-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .contact-card h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 16px;
+    }
+
+    .contact-info {
+      text-align: left;
+    }
+
+    .contact-info p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-info i {
+      color: var(--main-color);
+      width: 16px;
+    }
+
+    .contact-info a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-info a:hover {
+      color: var(--main-color);
+      text-decoration: underline;
+    }
+
+    .community-content {
+      text-align: center;
+    }
+
+    .community-desc {
+      color: var(--text-light);
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .social-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 12px;
+      color: var(--main-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+
+    .social-link:hover {
+      background: var(--main-gradient);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .social-link i {
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #181a2a;
+      color: #fff;
+      padding: 32px 0 18px 0;
+      /* text-align: center; */
+    }
+
+    .footer-links {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 1rem;
+      opacity: 0.8;
+      transition: 0.2s;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .footer-social {
+      margin-bottom: 10px;
+    }
+
+    .footer-social a {
+      color: #fff;
+      margin: 0 8px;
+      font-size: 1.2rem;
+      opacity: 0.7;
+      transition: 0.2s;
+    }
+
+    .footer-social a:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 900px) {
+      .about-banner h1 {
+        font-size: 1.8rem;
+      }
+
+      .business-lines {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .business-item {
+        padding: 1rem;
+      }
+
+      .business-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      .business-icon i {
+        font-size: 1.2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .tech-grid,
+      .compliance-grid,
+      .partners-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .contact-groups {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .contact-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .value-card,
+      .tech-card,
+      .compliance-card,
+      .partner-category,
+      .contact-card {
+        padding: 30px 20px;
+      }
+
+      .timeline-list {
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 40px;
+        align-items: stretch;
+      }
+
+      .timeline-list::before {
+        left: 30px;
+        right: auto;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        height: auto;
+        background: linear-gradient(180deg, #6366f1, #8b5cf6, #06b6d4, #10b981);
+      }
+
+      .timeline-item {
+        min-width: auto;
+        max-width: none;
+        width: calc(100% - 80px);
+        margin-left: 80px;
+        text-align: left;
+        margin-top: 0 !important;
+      }
+
+      .timeline-item:nth-child(even) {
+        margin-top: 0 !important;
+      }
+
+      .timeline-item::before {
+        top: 30px;
+        left: -65px;
+        transform: none;
+        width: 16px;
+        height: 16px;
+      }
+
+      .timeline-date {
+        position: static !important;
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+        margin-top: 0 !important;
+        transform: none !important;
+      }
+
+      .timeline-content {
+        margin-top: 0;
+      }
+
+      .social-links {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .social-link {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .about-banner {
+        padding: 60px 0 40px 0;
+      }
+
+      .about-banner h1 {
+        font-size: 1.5rem;
+      }
+
+      .business-lines {
+        gap: 0.8rem;
+      }
+
+      .business-item {
+        padding: 0.8rem;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .business-icon {
+        margin-right: 0;
+        margin-bottom: 0.8rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+      }
+
+      .values-section,
+      .tech-section,
+      .timeline-section,
+      .partners-section,
+      .contact-section {
+        padding: 60px 0;
+      }
+
+      .value-icon,
+      .tech-icon,
+      .contact-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+
+      .timeline-item {
+        width: calc(100% - 40px);
+        margin-left: 40px;
+        text-align: left;
+      }
+
+      .timeline-item::before {
+        left: -30px;
+      }
+
+      .timeline-list::before {
+        left: 20px;
+      }
+
+      .contact-groups {
+        gap: 30px;
+      }
+
+      .group-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+  <script>
+    // 移动端菜单切换
+    function toggleMenu() {
+      const nav = document.getElementById('main-nav');
+      nav.classList.toggle('open');
+    }
+  </script>
 </head>
+
 <body class="font-sans antialiased text-gray-900 bg-gray-50">
-    <!-- 导航栏 -->
-    <nav class="bg-white shadow-md fixed w-full z-10">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="flex items-center">
-                <a href="index.html" class="text-2xl font-bold text-blue-600">MOLX</a>
-            </div>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="hover:text-blue-600 transition-colors">首页</a>
-                <a href="about.html" class="text-blue-600 font-medium">平台介绍</a>
-                <a href="products.html" class="hover:text-blue-600 transition-colors">产品信息</a>
-                <a href="ecosystem.html" class="hover:text-blue-600 transition-colors">生态系统</a>
-                <a href="asset-market.html" class="hover:text-blue-600 transition-colors">资产市场</a>
-                <a href="join-us.html" class="hover:text-blue-600 transition-colors">加入我们</a>
-            </div>
-            <div class="flex items-center space-x-4">
-                <a href="download.html" class="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors">下载MOLX Pay</a>
-                <button class="md:hidden focus:outline-none">
-                    <i class="fas fa-bars text-blue-600 text-xl"></i>
-                </button>
-            </div>
+  <!-- 导航栏 -->
+  <nav class="bg-white shadow-md fixed w-full z-50">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="official.html" class="text-2xl font-bold text-blue-600">MOLX</a>
+      </div>
+      <div class="hidden md:flex items-center space-x-8" id="main-nav">
+        <a href="official.html" class="hover:text-blue-600 transition-colors">首页</a>
+        <a href="product.html" class="hover:text-blue-600 transition-colors">产品介绍</a>
+        <a href="about.html" class="hover:text-blue-600 transition-colors text-blue-600">关于我们</a>
+        <a href="https://h5.molx.io/H5mall/?tabIndex=0&postTabIndex=1" target="_blank"
+          class="hover:text-blue-600 transition-colors">MOLX商城</a>
+        <!-- <a href="download.html" class="hover:text-blue-600 transition-colors">下载APP</a> -->
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="download.html"
+          class="px-6 py-3 rounded-md bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">下载MOLX</a>
+        <button class="md:hidden focus:outline-none" onclick="toggleMenu()">
+          <i class="fas fa-bars text-blue-600 text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <!-- 公司介绍Banner -->
+  <section class="about-banner">
+    <div class="about-banner-content">
+      <h1>构建Web3支付的未来</h1>
+      <p>MOLX致力于构建全球领先的Web3数字支付生态系统，为用户提供一站式数字金融服务：</p>
+      <div class="business-lines">
+        <div class="business-item">
+          <div class="business-icon"><i class="fas fa-credit-card"></i></div>
+          <div class="business-content">
+            <h4>Pay支付网关</h4>
+            <p>便捷的数字资产充值提现服务</p>
+          </div>
         </div>
-    </nav>
-
-    <!-- 页面标题 -->
-    <section class="pt-32 pb-20 gradient-bg text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6">关于 MOLX</h1>
-            <p class="text-xl max-w-3xl mx-auto">
-                MOLX 是亚洲首个完全合规的去中心化现实世界资产(RWA)平台，致力于通过区块链技术重塑忠诚度积分与资产管理的未来。
-            </p>
+        <div class="business-item">
+          <div class="business-icon"><i class="fas fa-shopping-cart"></i></div>
+          <div class="business-content">
+            <h4>Mall购物商城</h4>
+            <p>丰富的消费应用场景平台</p>
+          </div>
         </div>
-    </section>
-
-    <!-- 我们的使命 -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 mb-10 lg:mb-0">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="我们的使命" class="rounded-xl shadow-lg">
-                </div>
-                <div class="lg:w-1/2 lg:pl-16">
-                    <h2 class="text-3xl font-bold mb-6">我们的使命</h2>
-                    <p class="text-gray-600 mb-6 text-lg">
-                        MOLX 的使命是通过区块链技术连接 Web2.0 和 Web3.0 世界，为用户和企业创造全新的价值交换方式。我们致力于：
-                    </p>
-                    <ul class="space-y-4">
-                        <li class="flex">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center">
-                                    <i class="fas fa-check text-white text-sm"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-gray-600">通过MOLX Pay提供安全便捷的加密货币支付解决方案，支持全球跨境交易</p>
-                            </div>
-                        </li>
-                        <li class="flex">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center">
-                                    <i class="fas fa-check text-white text-sm"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-gray-600">通过代币化技术，将现实世界资产映射到区块链上，增强资产流动性和透明度</p>
-                            </div>
-                        </li>
-                        <li class="flex">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center">
-                                    <i class="fas fa-check text-white text-sm"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-gray-600">创建一个安全、合规、透明的区块链生态系统，为用户提供多元化的资产管理和投资机会</p>
-                            </div>
-                        </li>
-                        <li class="flex">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center">
-                                    <i class="fas fa-check text-white text-sm"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-gray-600">通过 Social-To-Earn 模式，让用户的社交互动创造真实价值</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <div class="business-item">
+          <div class="business-icon"><i class="fas fa-users"></i></div>
+          <div class="business-content">
+            <h4>Sofi社交金融</h4>
+            <p>连接用户与社区生态网络</p>
+          </div>
         </div>
-    </section>
-
-    <!-- 平台发展历程 -->
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">平台发展历程</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    从创立至今，MOLX 不断创新发展，致力于构建完全合规的区块链资产平台。
-                </p>
-            </div>
-            <div class="timeline-container py-10">
-                <!-- 时间线项目 1 -->
-                <div class="timeline-item mb-16 flex">
-                    <div class="w-1/2 pr-12 text-right">
-                        <div class="bg-white p-6 rounded-xl shadow-md inline-block">
-                            <h3 class="text-xl font-bold mb-2">2022 年 Q1</h3>
-                            <p class="text-gray-600">PEG Limited 成立，开始构思 MOLX 平台概念</p>
-                        </div>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="w-1/2 pl-12"></div>
-                </div>
-                <!-- 时间线项目 2 -->
-                <div class="timeline-item mb-16 flex">
-                    <div class="w-1/2 pr-12"></div>
-                    <div class="timeline-dot"></div>
-                    <div class="w-1/2 pl-12">
-                        <div class="bg-white p-6 rounded-xl shadow-md inline-block">
-                            <h3 class="text-xl font-bold mb-2">2022 年 Q3</h3>
-                            <p class="text-gray-600">完成平台技术架构设计，开始开发 MVP 版本</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- 时间线项目 3 -->
-                <div class="timeline-item mb-16 flex">
-                    <div class="w-1/2 pr-12 text-right">
-                        <div class="bg-white p-6 rounded-xl shadow-md inline-block">
-                            <h3 class="text-xl font-bold mb-2">2023 年 Q1</h3>
-                            <p class="text-gray-600">获得首轮融资，完成合规框架搭建</p>
-                        </div>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="w-1/2 pl-12"></div>
-                </div>
-                <!-- 时间线项目 4 -->
-                <div class="timeline-item mb-16 flex">
-                    <div class="w-1/2 pr-12"></div>
-                    <div class="timeline-dot"></div>
-                    <div class="w-1/2 pl-12">
-                        <div class="bg-white p-6 rounded-xl shadow-md inline-block">
-                            <h3 class="text-xl font-bold mb-2">2023 年 Q3</h3>
-                            <p class="text-gray-600">MOLX 平台正式上线，推出首批 RWA 资产</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- 时间线项目 5 -->
-                <div class="timeline-item flex">
-                    <div class="w-1/2 pr-12 text-right">
-                        <div class="bg-white p-6 rounded-xl shadow-md inline-block">
-                            <h3 class="text-xl font-bold mb-2">2023 年 Q4</h3>
-                            <p class="text-gray-600">与多家企业达成战略合作，扩展忠诚度积分生态</p>
-                        </div>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="w-1/2 pl-12"></div>
-                </div>
-            </div>
+        <div class="business-item">
+          <div class="business-icon"><i class="fas fa-wallet"></i></div>
+          <div class="business-content">
+            <h4>Wallet数字钱包</h4>
+            <p>安全的去中心化资产管理</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- 技术优势 -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">技术优势</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    MOLX 平台基于先进的区块链技术和人工智能算法，为用户提供安全、高效、透明的服务。
-                </p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 技术优势卡片 1 -->
-                <div class="bg-white rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-shield-alt text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">安全与合规</h3>
-                    <p class="text-gray-600">
-                        采用多重签名和冷热钱包分离技术保障资产安全，同时遵循严格的监管要求，确保平台运营合法合规。
-                    </p>
-                </div>
-                
-                <!-- 技术优势卡片 2 -->
-                <div class="bg-white rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl">
-                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-robot text-purple-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">AI 驱动</h3>
-                    <p class="text-gray-600">
-                        人工智能分析引擎优化积分分配和资产管理，通过机器学习算法分析用户行为，提供个性化的服务和推荐。
-                    </p>
-                </div>
-                
-                <!-- 技术优势卡片 3 -->
-                <div class="bg-white rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-lock text-green-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">隐私保护</h3>
-                    <p class="text-gray-600">
-                        利用零知识证明技术保护用户隐私，确保数据安全与交易透明，用户可以在不泄露敏感信息的情况下验证交易。
-                    </p>
-                </div>
-                
-                <!-- 技术优势卡片 4 -->
-                <div class="bg-white rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl">
-                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-exchange-alt text-red-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">跨链互操作</h3>
-                    <p class="text-gray-600">
-                        支持多链资产互通，用户可以在不同区块链网络之间无缝转移资产，提高资产流动性和使用便捷性。
-                    </p>
-                </div>
-                
-                <!-- 技术优势卡片 5 -->
-                <div class="bg-white rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl">
-                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-chart-line text-yellow-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">智能合约</h3>
-                    <p class="text-gray-600">
-                        基于智能合约技术实现资产代币化和自动化交易，确保交易执行的自动化、透明和不可篡改。
-                    </p>
-                </div>
-                
-                <!-- 技术优势卡片 6 -->
-                <div class="bg-white rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl">
-                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-tachometer-alt text-indigo-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">高性能架构</h3>
-                    <p class="text-gray-600">
-                        采用分层架构和分布式存储技术，确保平台高并发处理能力和稳定性，为用户提供流畅的使用体验。
-                    </p>
-                </div>
-            </div>
+
+
+  <!-- 核心价值观 -->
+  <section class="values-section">
+    <div class="container">
+      <h2 class="section-title">核心价值观</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>安全至上</h3>
+          <p>采用银行级安全标准，多重加密保护，确保用户资产安全无忧</p>
         </div>
-    </section>
-
-    <!-- 常见问题 -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">常见问题</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    了解更多关于 MOLX 平台的常见问题和解答。
-                </p>
-            </div>
-            <div class="max-w-3xl mx-auto space-y-6">
-                <!-- FAQ 项目 1 -->
-                <div class="bg-gray-50 rounded-xl p-6">
-                    <button class="flex justify-between items-center w-full text-left focus:outline-none">
-                        <h3 class="text-lg font-semibold">什么是 MOLX 平台？</h3>
-                        <i class="fas fa-chevron-down text-blue-600"></i>
-                    </button>
-                    <div class="mt-4">
-                        <p class="text-gray-600">
-                            MOLX 是亚洲首个完全合规的去中心化现实世界资产(RWA)平台，融合了社交金融(SocialFi)、人工智能(AI)和现实世界资产代币化技术，旨在通过将忠诚度积分上链，重塑全球消费体验。
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ 项目 2 -->
-                <div class="bg-gray-50 rounded-xl p-6">
-                    <button class="flex justify-between items-center w-full text-left focus:outline-none">
-                        <h3 class="text-lg font-semibold">如何在 MOLX 平台上获得忠诚度积分？</h3>
-                        <i class="fas fa-chevron-down text-blue-600"></i>
-                    </button>
-                    <div class="mt-4">
-                        <p class="text-gray-600">
-                            用户可以通过多种方式获得忠诚度积分，包括：在合作企业消费、参与平台社交活动、创建和分享内容、邀请新用户等。所有积分都会自动上链，存入用户的区块链钱包。
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ 项目 3 -->
-                <div class="bg-gray-50 rounded-xl p-6">
-                    <button class="flex justify-between items-center w-full text-left focus:outline-none">
-                        <h3 class="text-lg font-semibold">什么是 RWA 代币化？</h3>
-                        <i class="fas fa-chevron-down text-blue-600"></i>
-                    </button>
-                    <div class="mt-4">
-                        <p class="text-gray-600">
-                            RWA 代币化是指将现实世界的资产（如房地产、债券、艺术品等）通过区块链技术映射为数字代币，使这些资产可以在区块链上进行交易和管理。这种技术可以提高资产的流动性、透明度和可访问性。
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ 项目 4 -->
-                <div class="bg-gray-50 rounded-xl p-6">
-                    <button class="flex justify-between items-center w-full text-left focus:outline-none">
-                        <h3 class="text-lg font-semibold">MOLX 平台如何确保合规性？</h3>
-                        <i class="fas fa-chevron-down text-blue-600"></i>
-                    </button>
-                    <div class="mt-4">
-                        <p class="text-gray-600">
-                            MOLX 平台严格遵循相关法律法规，实施完善的 KYC（了解你的客户）和 AML（反洗钱）流程，所有上链资产都经过严格的审核和尽职调查，确保合法合规。同时，我们与监管机构保持密切沟通，及时调整平台政策以符合最新的监管要求。
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ 项目 5 -->
-                <div class="bg-gray-50 rounded-xl p-6">
-                    <button class="flex justify-between items-center w-full text-left focus:outline-none">
-                        <h3 class="text-lg font-semibold">如何开始使用 MOLX 平台？</h3>
-                        <i class="fas fa-chevron-down text-blue-600"></i>
-                    </button>
-                    <div class="mt-4">
-                        <p class="text-gray-600">
-                            使用 MOLX 平台非常简单：首先注册账户并完成身份验证，然后连接您的区块链钱包，即可开始参与平台活动、获取忠诚度积分或投资 RWA 资产。我们提供详细的用户指南和客户支持，帮助您顺利开始您的 Web3 之旅。
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>用户为本</h3>
+          <p>以用户需求为导向，持续优化产品体验，让Web3触手可及</p>
         </div>
-    </section>
-
-       <!-- 号召行动 -->
-       <section class="py-20 gradient-bg text-white">
-           <div class="container mx-auto px-6 text-center">
-               <h2 class="text-3xl font-bold mb-6">加入 MOLX 生态系统</h2>
-               <p class="text-xl max-w-3xl mx-auto mb-10">
-                   无论您是用户、企业还是开发者，都可以成为 MOLX 生态系统的一部分，共同探索区块链技术的无限可能。
-               </p>
-               <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                   <a href="download.html" class="px-8 py-4 rounded-lg bg-white text-blue-600 text-center font-medium hover:bg-gray-100 transition-colors">
-                       立即下载
-                   </a>
-                   <a href="ecosystem.html" class="px-8 py-4 rounded-lg border-2 border-white text-white text-center font-medium hover:bg-white hover:text-blue-600 transition-colors">
-                       了解生态系统
-                   </a>
-               </div>
-           </div>
-       </section>
-
-    <!-- 页脚 -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">MOLX</h3>
-                    <p class="text-gray-400">
-                        亚洲首个完全合规的去中心化现实世界资产平台，致力于通过区块链技术重塑忠诚度积分与资产管理的未来。
-                    </p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">快速链接</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
-                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">平台介绍</a></li>
-                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">产品信息</a></li>
-                        <li><a href="ecosystem.html" class="text-gray-400 hover:text-white transition-colors">生态系统</a></li>
-                        <li><a href="asset-market.html" class="text-gray-400 hover:text-white transition-colors">资产市场</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">联系我们</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-2 text-gray-400"></i>
-                            <a href="mailto:info@molx.io" class="text-gray-400 hover:text-white transition-colors">info@molx.io</a>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>
-                            <span class="text-gray-400">香港新鸿基中心大厦</span>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">关注我们</h3>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
-                            <i class="fab fa-twitter text-white"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
-                            <i class="fab fa-linkedin-in text-white"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
-                            <i class="fab fa-telegram-plane text-white"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
-                            <i class="fab fa-medium-m text-white"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 MOLX 保留所有权利。</p>
-            </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3>创新驱动</h3>
+          <p>拥抱前沿技术，不断探索数字支付的无限可能</p>
         </div>
-    </footer>
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3>全球视野</h3>
+          <p>构建无边界的数字支付生态，连接全球用户与Web3世界</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 技术优势 -->
+  <section class="tech-section">
+    <div class="container">
+      <h2 class="section-title">技术优势</h2>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fas fa-lock"></i>
+          </div>
+          <h3>多重安全防护</h3>
+          <p>采用多重签名、冷热钱包分离、智能合约审计等多层安全机制</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fas fa-network-wired"></i>
+          </div>
+          <h3>跨链互操作</h3>
+          <p>支持多条主流区块链，实现资产跨链无缝流转</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>高性能处理</h3>
+          <p>毫秒级交易确认，支持高并发处理，提供极致用户体验</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- JavaScript -->
-    <script>
-        // FAQ 折叠功能
-        document.querySelectorAll('.bg-gray-50 button').forEach(button => {
-            button.addEventListener('click', () => {
-                const content = button.nextElementSibling;
-                const icon = button.querySelector('i');
-                
-                if (content.style.display === 'none' || content.style.display === '') {
-                    content.style.display = 'block';
-                    icon.classList.remove('fa-chevron-down');
-                    icon.classList.add('fa-chevron-up');
-                } else {
-                    content.style.display = 'none';
-                    icon.classList.remove('fa-chevron-up');
-                    icon.classList.add('fa-chevron-down');
-                }
-            });
+  <!-- 合规和安全 -->
+  <section class="compliance-section">
+    <div class="container">
+      <h2 class="section-title">合规和安全</h2>
+      <div class="compliance-grid">
+        <div class="compliance-card">
+          <div class="compliance-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>监管合规</h3>
+          <p>严格遵循各国金融监管要求，持有相关金融服务牌照，确保业务合法合规运营</p>
+        </div>
+        <div class="compliance-card">
+          <div class="compliance-icon">
+            <i class="fas fa-user-shield"></i>
+          </div>
+          <h3>KYC/AML体系</h3>
+          <p>建立完善的身份验证和反洗钱体系，严格执行客户尽职调查和交易监控</p>
+        </div>
+        <div class="compliance-card">
+          <div class="compliance-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <h3>资金托管保障</h3>
+          <p>与持牌托管机构合作，用户资产独立托管，享有高达5000万美元保险保障</p>
+        </div>
+        <div class="compliance-card">
+          <div class="compliance-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h3>透明审计</h3>
+          <p>定期接受第三方安全审计，财务状况透明公开，确保平台运营的可信度</p>
+        </div>
+        <div class="compliance-card">
+          <div class="compliance-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3>数据保护</h3>
+          <p>采用银行级数据加密标准，严格保护用户隐私信息，符合GDPR等数据保护法规</p>
+        </div>
+        <div class="compliance-card">
+          <div class="compliance-icon">
+            <i class="fas fa-balance-scale"></i>
+          </div>
+          <h3>风险控制</h3>
+          <p>建立多维度风险评估模型，实时监控异常交易，保障用户资金安全</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 发展历程/里程碑 -->
+  <section class="timeline-section">
+    <div class="container">
+      <h2 class="section-title">发展历程</h2>
+      <div class="timeline-list">
+        <div class="timeline-item">
+          <div class="timeline-date">2022</div>
+          <div class="timeline-content">
+            <h3>MOLX项目启动</h3>
+            <p>专注Web3数字支付基础设施建设</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2023</div>
+          <div class="timeline-content">
+            <h3>完成种子轮融资</h3>
+            <p>推出MOLX Wallet产品，获得多项区块链技术专利</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2024</div>
+          <div class="timeline-content">
+            <h3>全球用户突破100万</h3>
+            <p>支持50+主流加密货币，建立全球合规框架</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025</div>
+          <div class="timeline-content">
+            <h3>推出U卡支付</h3>
+            <p>启动全球化战略，致力于成为Web3支付基础设施</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 生态合作伙伴 -->
+  <section class="partners-section">
+    <div class="container">
+      <h2 class="section-title">生态合作伙伴</h2>
+      <p class="partners-subtitle">与全球领先的区块链项目和金融机构建立战略合作关系</p>
+      <div class="partners-grid">
+        <div class="partner-category">
+          <h3>区块链基础设施</h3>
+          <div class="partner-logos">
+            <div class="partner-logo">Ethereum</div>
+            <div class="partner-logo">Polygon</div>
+            <div class="partner-logo">BSC</div>
+          </div>
+        </div>
+        <div class="partner-category">
+          <h3>DeFi协议</h3>
+          <div class="partner-logos">
+            <div class="partner-logo">Uniswap</div>
+            <div class="partner-logo">Compound</div>
+            <div class="partner-logo">Aave</div>
+          </div>
+        </div>
+        <div class="partner-category">
+          <h3>支付网络</h3>
+          <div class="partner-logos">
+            <div class="partner-logo">Visa</div>
+            <div class="partner-logo">Mastercard</div>
+            <div class="partner-logo">UnionPay</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 联系我们 -->
+  <section class="contact-section">
+    <div class="container">
+      <h2 class="section-title">联系我们</h2>
+      <div class="contact-groups">
+        <!-- 商务与技术支持组 -->
+        <div class="contact-group">
+          <h3 class="group-title">商务与技术支持</h3>
+          <div class="contact-cards">
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-handshake"></i>
+              </div>
+              <h4>商务合作</h4>
+              <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> <a href="mailto:bd@molx.io">bd@molx.io</a></p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+852-62345678">+852 6234-5678</a></p>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-headset"></i>
+              </div>
+              <h4>技术支持</h4>
+              <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> <a href="mailto:support@molx.io">support@molx.io</a></p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+852-87654321">+852 8765-4321</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 社区交流组 -->
+        <div class="contact-group">
+          <h3 class="group-title">社区交流</h3>
+          <div class="community-content">
+            <p class="community-desc">加入我们的全球社区，获取最新资讯和技术支持</p>
+            <div class="social-links">
+              <a href="#" class="social-link">
+                <i class="fab fa-telegram"></i>
+                <span>Telegram</span>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-discord"></i>
+                <span>Discord</span>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-twitter"></i>
+                <span>Twitter</span>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">MOLX</h3>
+          <p class="text-gray-400">
+            融合社交金融与现实资产的 Web3 平台，重塑忠诚度积分与资产管理的未来。
+          </p>
+          <div class="flex space-x-4 mt-6">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-telegram"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">快速链接</h3>
+          <ul class="space-y-2">
+            <li><a href="official.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+            <li><a href="product.html" class="text-gray-400 hover:text-white transition-colors">产品介绍</a></li>
+            <li><a href="download.html" class="text-gray-400 hover:text-white transition-colors">下载APP</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">资源</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">文档</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">白皮书</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">API</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">帮助中心</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">联系我们</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <i class="fas fa-envelope text-gray-400 mt-1 mr-2"></i>
+              <span class="text-gray-400">info@molx.io</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt text-gray-400 mt-1 mr-2"></i>
+              <span class="text-gray-400">香港新鸿基中心大厦</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm">
+          &copy; 2025 MOLX 保留所有权利。
+        </p>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+          <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">隐私政策</a>
+          <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">服务条款</a>
+          <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">法律声明</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // 移动端导航菜单
+    function toggleMenu() {
+      const nav = document.getElementById('main-nav');
+      nav.classList.toggle('hidden');
+      nav.classList.toggle('flex');
+      nav.classList.toggle('flex-col');
+      nav.classList.toggle('absolute');
+      nav.classList.toggle('top-16');
+      nav.classList.toggle('left-0');
+      nav.classList.toggle('w-full');
+      nav.classList.toggle('bg-white');
+      nav.classList.toggle('p-4');
+      nav.classList.toggle('shadow-md');
+      nav.classList.toggle('z-40'); // 确保移动菜单的z-index低于导航栏
+    }
+
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
         });
-
-        // 移动端菜单
-        const menuButton = document.querySelector('button.md\\:hidden');
-        const mobileMenu = document.createElement('div');
-        mobileMenu.className = 'fixed inset-0 bg-black bg-opacity-50 z-20 hidden';
-        document.body.appendChild(mobileMenu);
-
-        const menuContent = document.createElement('div');
-        menuContent.className = 'fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-30 transform translate-x-full transition-transform duration-300';
-        menuContent.innerHTML = `
-            <div class="p-6">
-                <div class="flex justify-between items-center mb-8">
-                    <a href="index.html" class="text-2xl font-bold text-blue-600">MOLX</a>
-                    <button class="focus:outline-none">
-                        <i class="fas fa-times text-gray-600 text-xl"></i>
-                    </button>
-                </div>
-                <div class="flex flex-col space-y-4">
-                    <a href="index.html" class="hover:text-blue-600 transition-colors">首页</a>
-                    <a href="about.html" class="text-blue-600 font-medium">平台介绍</a>
-                    <a href="products.html" class="hover:text-blue-600 transition-colors">产品信息</a>
-                    <a href="ecosystem.html" class="hover:text-blue-600 transition-colors">生态系统</a>
-                    <a href="asset-market.html" class="hover:text-blue-600 transition-colors">资产市场</a>
-                    <a href="join-us.html" class="hover:text-blue-600 transition-colors">加入我们</a>
-                </div>
-            </div>
-        `;
-        document.body.appendChild(menuContent);
-
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-            menuContent.classList.remove('translate-x-full');
-        });
-
-        mobileMenu.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            menuContent.classList.add('translate-x-full');
-        });
-
-        menuContent.querySelector('button').addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            menuContent.classList.add('translate-x-full');
-        });
-    </script>
+      });
+    });
+  </script>
 </body>
+
 </html>

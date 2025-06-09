@@ -1,69 +1,55 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>下载 MOLX - 您的加密货币支付解决方案</title>
+    <title>下载 MOLX Pay - 您的加密货币支付解决方案</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            /* padding: 0 32px; */
-        }
-
         .gradient-bg {
             background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
         }
-
         .download-hero {
             background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80');
             background-size: cover;
             background-position: center;
         }
-
         .feature-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-
         .app-screenshot {
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             border-radius: 1.5rem;
             overflow: hidden;
         }
-
         .qr-code-container {
             transition: all 0.3s ease;
         }
-
         .qr-code-container:hover {
             transform: scale(1.05);
         }
     </style>
 </head>
-
 <body class="font-sans antialiased text-gray-900 bg-gray-50">
     <!-- 导航栏 -->
     <nav class="bg-white shadow-md fixed w-full z-50">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <a href="official.html" class="text-2xl font-bold text-blue-600">MOLX</a>
+                <a href="index.html" class="text-2xl font-bold text-blue-600">MOLX</a>
             </div>
-            <div class="hidden md:flex items-center space-x-8" id="main-nav">
-                <a href="official.html" class="hover:text-blue-600 transition-colors">首页</a>
-                <a href="product.html" class="hover:text-blue-600 transition-colors">产品介绍</a>
-                <a href="about.html" class="hover:text-blue-600 transition-colors">关于我们</a>
-                <a href="https://h5.molx.io/H5mall/?tabIndex=0&postTabIndex=1" target="_blank"
-                    class="hover:text-blue-600 transition-colors">MOLX商城</a>
-                <!-- <a href="download.html" class="hover:text-blue-600 transition-colors text-blue-600">下载APP</a> -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="hover:text-blue-600 transition-colors">首页</a>
+                <a href="about.html" class="hover:text-blue-600 transition-colors">平台介绍</a>
+                <a href="products.html" class="hover:text-blue-600 transition-colors">产品信息</a>
+                <a href="ecosystem.html" class="hover:text-blue-600 transition-colors">生态系统</a>
+                <a href="asset-market.html" class="hover:text-blue-600 transition-colors">资产市场</a>
+                <a href="join-us.html" class="hover:text-blue-600 transition-colors">加入我们</a>
             </div>
             <div class="flex items-center space-x-4">
-                <a href="download.html"
-                    class="px-6 py-3 rounded-md bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">下载MOLX</a>
-                <button class="md:hidden focus:outline-none" onclick="toggleMenu()">
+                <a href="download.html" class="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors">下载MOLX Pay</a>
+                <button class="md:hidden focus:outline-none">
                     <i class="fas fa-bars text-blue-600 text-xl"></i>
                 </button>
             </div>
@@ -77,42 +63,31 @@
             <div class="flex flex-col lg:flex-row items-center">
                 <div class="lg:w-1/2 mb-12 lg:mb-0">
                     <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-                        下载 MOLX
+                        下载 MOLX Pay
                     </h1>
                     <p class="text-xl text-gray-200 mb-8">
-                        MOLX 是一款革命性的加密货币支付应用，让您轻松实现跨境支付、资产交换和忠诚度积分兑换，无需担心高额手续费和漫长等待时间。
+                        MOLX Pay 是一款革命性的加密货币支付应用，让您轻松实现跨境支付、资产交换和忠诚度积分兑换，无需担心高额手续费和漫长等待时间。
                     </p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-                        <a href="#download-ios"
-                            class="px-8 py-4 rounded-lg bg-blue-600 text-white text-center font-medium hover:bg-blue-700 transition-colors flex items-center justify-center">
+                        <a href="#download-ios" class="px-8 py-4 rounded-lg bg-blue-600 text-white text-center font-medium hover:bg-blue-700 transition-colors flex items-center justify-center">
                             <i class="fab fa-apple text-2xl mr-3"></i>
                             <div>
                                 <div class="text-xs">下载</div>
                                 <div class="text-sm font-semibold">App Store</div>
                             </div>
                         </a>
-                        <a href="#download-android"
-                            class="px-8 py-4 rounded-lg bg-white text-blue-600 text-center font-medium hover:bg-gray-100 transition-colors flex items-center justify-center">
+                        <a href="#download-android" class="px-8 py-4 rounded-lg bg-white text-blue-600 text-center font-medium hover:bg-gray-100 transition-colors flex items-center justify-center">
                             <i class="fab fa-google-play text-2xl mr-3"></i>
                             <div>
                                 <div class="text-xs">下载</div>
                                 <div class="text-sm font-semibold">Google Play</div>
                             </div>
                         </a>
-                        <a href="#download-android"
-                            class="px-8 py-4 rounded-lg bg-white text-green-600 text-center font-medium hover:bg-gray-100 transition-colors flex items-center justify-center">
-                            <i class="fab fa-android text-2xl mr-3"></i>
-                            <div>
-                                <div class="text-xs">下载</div>
-                                <div class="text-sm font-semibold">APK安装包</div>
-                            </div>
-                        </a>
                     </div>
                 </div>
                 <div class="lg:w-1/2 flex justify-center">
                     <div class="app-screenshot relative w-64 md:w-80">
-                        <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                            alt="MOLX  应用截图" class="w-full">
+                        <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="MOLX Pay 应用截图" class="w-full">
                     </div>
                 </div>
             </div>
@@ -123,9 +98,9 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">MOLX 特点</h2>
+                <h2 class="text-3xl font-bold mb-4">MOLX Pay 特点</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">
-                    MOLX 提供全方位的加密货币支付和资产管理功能，满足您的各种需求。
+                    MOLX Pay 提供全方位的加密货币支付和资产管理功能，满足您的各种需求。
                 </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -136,10 +111,10 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4">闪电般的交易速度</h3>
                     <p class="text-gray-600">
-                        基于先进的区块链技术，MOLX 支持秒级确认的交易，让您的支付体验更加流畅。
+                        基于先进的区块链技术，MOLX Pay 支持秒级确认的交易，让您的支付体验更加流畅。
                     </p>
                 </div>
-
+                
                 <!-- 特点卡片 2 -->
                 <div class="feature-card bg-white rounded-xl shadow-lg p-8 transition-all duration-300">
                     <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
@@ -150,7 +125,7 @@
                         采用多重加密和生物识别技术，确保您的资产安全，同时支持冷钱包集成，提供更高级别的安全保障。
                     </p>
                 </div>
-
+                
                 <!-- 特点卡片 3 -->
                 <div class="feature-card bg-white rounded-xl shadow-lg p-8 transition-all duration-300">
                     <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
@@ -161,7 +136,7 @@
                         支持超过 50 种主流加密货币和稳定币，同时支持法币兑换，满足您的各种支付和投资需求。
                     </p>
                 </div>
-
+                
                 <!-- 特点卡片 4 -->
                 <div class="feature-card bg-white rounded-xl shadow-lg p-8 transition-all duration-300">
                     <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
@@ -172,7 +147,7 @@
                         将传统忠诚度积分转化为区块链上的代币，提高流动性和价值，让您的每一次消费都创造真实价值。
                     </p>
                 </div>
-
+                
                 <!-- 特点卡片 5 -->
                 <div class="feature-card bg-white rounded-xl shadow-lg p-8 transition-all duration-300">
                     <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
@@ -183,7 +158,7 @@
                         无国界支付解决方案，支持全球 200+ 国家和地区，让跨境支付像本地支付一样简单。
                     </p>
                 </div>
-
+                
                 <!-- 特点卡片 6 -->
                 <div class="feature-card bg-white rounded-xl shadow-lg p-8 transition-all duration-300">
                     <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
@@ -202,7 +177,7 @@
     <section id="download-section" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">立即下载 MOLX</h2>
+                <h2 class="text-3xl font-bold mb-4">立即下载 MOLX Pay</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">
                     选择适合您设备的版本，开始您的加密货币支付之旅。
                 </p>
@@ -219,15 +194,13 @@
                         要求 iOS 12.0 或更高版本
                     </p>
                     <div class="qr-code-container bg-white p-4 rounded-lg shadow-md inline-block mb-6">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com/molx-pay-ios"
-                            alt="iOS 下载二维码" class="w-32 h-32 mx-auto">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com/molx-pay-ios" alt="iOS 下载二维码" class="w-32 h-32 mx-auto">
                     </div>
-                    <a href="#"
-                        class="block w-full py-3 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors">
+                    <a href="#" class="block w-full py-3 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors">
                         App Store 下载
                     </a>
                 </div>
-
+                
                 <!-- Android 下载 -->
                 <div id="download-android" class="bg-white rounded-xl shadow-lg p-8 text-center">
                     <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -239,21 +212,18 @@
                         要求 Android 8.0 或更高版本
                     </p>
                     <div class="qr-code-container bg-white p-4 rounded-lg shadow-md inline-block mb-6">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com/molx-pay-android"
-                            alt="Android 下载二维码" class="w-32 h-32 mx-auto">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com/molx-pay-android" alt="Android 下载二维码" class="w-32 h-32 mx-auto">
                     </div>
-                    <a href="#"
-                        class="block w-full py-3 rounded-lg bg-green-600 text-white font-medium hover:bg-green-700 transition-colors">
+                    <a href="#" class="block w-full py-3 rounded-lg bg-green-600 text-white font-medium hover:bg-green-700 transition-colors">
                         Google Play 下载
                     </a>
                 </div>
             </div>
-
+            
             <!-- 直接下载 APK -->
             <div class="mt-12 text-center">
                 <p class="text-gray-600 mb-4">Android 用户也可以直接下载 APK 安装包</p>
-                <a href="#"
-                    class="inline-block px-8 py-3 rounded-lg border-2 border-blue-600 text-blue-600 font-medium hover:bg-blue-600 hover:text-white transition-colors">
+                <a href="#" class="inline-block px-8 py-3 rounded-lg border-2 border-blue-600 text-blue-600 font-medium hover:bg-blue-600 hover:text-white transition-colors">
                     <i class="fas fa-download mr-2"></i> 下载 APK 文件
                 </a>
             </div>
@@ -266,43 +236,40 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold mb-4">使用指南</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">
-                    简单几步，开始使用 MOLX 进行加密货币支付和资产管理。
+                    简单几步，开始使用 MOLX Pay 进行加密货币支付和资产管理。
                 </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                 <!-- 步骤 1 -->
                 <div class="text-center">
-                    <div
-                        class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
                         1
                     </div>
                     <h3 class="text-xl font-bold mb-4">下载并安装</h3>
                     <p class="text-gray-600">
-                        从 App Store 或 Google Play 下载 MOLX 应用，并按照提示完成安装。
+                        从 App Store 或 Google Play 下载 MOLX Pay 应用，并按照提示完成安装。
                     </p>
                 </div>
-
+                
                 <!-- 步骤 2 -->
                 <div class="text-center">
-                    <div
-                        class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
                         2
                     </div>
-                    <h3 class="text-xl font-bold mb-4">注册或开通账户</h3>
+                    <h3 class="text-xl font-bold mb-4">创建或导入钱包</h3>
                     <p class="text-gray-600">
-                        注册MOLX应用，设置安全密码和二次验证，确保您的资产安全。
+                        创建新钱包或导入现有钱包，设置安全密码和生物识别验证，确保您的资产安全。
                     </p>
                 </div>
-
+                
                 <!-- 步骤 3 -->
                 <div class="text-center">
-                    <div
-                        class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
                         3
                     </div>
                     <h3 class="text-xl font-bold mb-4">开始使用</h3>
                     <p class="text-gray-600">
-                        充值加密货币或法币，即可开始进行支付、交易和资产管理，享受 MOLX 带来的便捷体验。
+                        充值加密货币或法币，即可开始进行支付、交易和资产管理，享受 MOLX Pay 带来的便捷体验。
                     </p>
                 </div>
             </div>
@@ -315,38 +282,37 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold mb-4">常见问题</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">
-                    关于 MOLX 的一些常见问题解答。
+                    关于 MOLX Pay 的一些常见问题解答。
                 </p>
             </div>
             <div class="max-w-3xl mx-auto space-y-6">
                 <div class="bg-white rounded-xl shadow-md p-6">
-                    <h3 class="text-xl font-bold mb-2">MOLX 是否收取手续费？</h3>
+                    <h3 class="text-xl font-bold mb-2">MOLX Pay 是否收取手续费？</h3>
                     <p class="text-gray-600">
-                        MOLX 提供业内最低的交易手续费，大部分交易手续费低至 0.1%。平台内部转账完全免费，跨链交易仅收取网络矿工费。
+                        MOLX Pay 提供业内最低的交易手续费，大部分交易手续费低至 0.1%。平台内部转账完全免费，跨链交易仅收取网络矿工费。
                     </p>
                 </div>
                 <div class="bg-white rounded-xl shadow-md p-6">
                     <h3 class="text-xl font-bold mb-2">如何确保我的资产安全？</h3>
                     <p class="text-gray-600">
-                        MOLX 采用多重加密技术和生物识别验证，同时支持硬件钱包集成。我们的安全团队 24/7 监控系统，确保您的资产安全。
+                        MOLX Pay 采用多重加密技术和生物识别验证，同时支持硬件钱包集成。我们的安全团队 24/7 监控系统，确保您的资产安全。
                     </p>
                 </div>
                 <div class="bg-white rounded-xl shadow-md p-6">
-                    <h3 class="text-xl font-bold mb-2">MOLX 支持哪些加密货币？</h3>
+                    <h3 class="text-xl font-bold mb-2">MOLX Pay 支持哪些加密货币？</h3>
                     <p class="text-gray-600">
-                        MOLX 目前支持超过 50 种主流加密货币，包括 BTC、ETH、USDT、USDC 等，并且我们会持续增加更多币种的支持。
+                        MOLX Pay 目前支持超过 50 种主流加密货币，包括 BTC、ETH、USDT、USDC 等，并且我们会持续增加更多币种的支持。
                     </p>
                 </div>
                 <div class="bg-white rounded-xl shadow-md p-6">
                     <h3 class="text-xl font-bold mb-2">如何将法币兑换为加密货币？</h3>
                     <p class="text-gray-600">
-                        MOLX 支持多种法币入金渠道，包括银行卡、支付宝、微信支付等，您可以轻松将法币兑换为加密货币。
+                        MOLX Pay 支持多种法币入金渠道，包括银行卡、支付宝、微信支付等，您可以轻松将法币兑换为加密货币。
                     </p>
                 </div>
             </div>
             <div class="text-center mt-12">
-                <a href="#"
-                    class="inline-block px-8 py-3 rounded-lg border-2 border-blue-600 text-blue-600 font-medium hover:bg-blue-600 hover:text-white transition-colors">
+                <a href="#" class="inline-block px-8 py-3 rounded-lg border-2 border-blue-600 text-blue-600 font-medium hover:bg-blue-600 hover:text-white transition-colors">
                     查看更多常见问题
                 </a>
             </div>
@@ -358,15 +324,13 @@
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold mb-6">准备好开始您的加密支付之旅了吗？</h2>
             <p class="text-xl mb-8 max-w-2xl mx-auto">
-                下载 MOLX，体验革命性的加密货币支付和资产管理解决方案。
+                下载 MOLX Pay，体验革命性的加密货币支付和资产管理解决方案。
             </p>
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#download-section"
-                    class="px-8 py-4 rounded-lg bg-white text-blue-600 font-medium hover:bg-gray-100 transition-colors">
+                <a href="#download-section" class="px-8 py-4 rounded-lg bg-white text-blue-600 font-medium hover:bg-gray-100 transition-colors">
                     立即下载
                 </a>
-                <a href="about.html"
-                    class="px-8 py-4 rounded-lg border-2 border-white text-white font-medium hover:bg-white hover:text-blue-600 transition-colors">
+                <a href="about.html" class="px-8 py-4 rounded-lg border-2 border-white text-white font-medium hover:bg-white hover:text-blue-600 transition-colors">
                     了解更多
                 </a>
             </div>
@@ -400,11 +364,10 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4">快速链接</h3>
                     <ul class="space-y-2">
-                        <li><a href="official.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
-                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
-                        <li><a href="product.html" class="text-gray-400 hover:text-white transition-colors">产品介绍</a>
-                        </li>
-                        <!-- <li><a href="download.html" class="text-gray-400 hover:text-white transition-colors">下载APP</a></li> -->
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">平台介绍</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">产品信息</a></li>
+                        <li><a href="ecosystem.html" class="text-gray-400 hover:text-white transition-colors">生态系统</a></li>
                     </ul>
                 </div>
                 <div>
@@ -445,7 +408,7 @@
 
     <script>
         // 移动端导航菜单
-        document.querySelector('button').addEventListener('click', function () {
+        document.querySelector('button').addEventListener('click', function() {
             const nav = document.querySelector('.hidden');
             nav.classList.toggle('hidden');
             nav.classList.toggle('flex');
@@ -464,7 +427,7 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-
+                
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
@@ -472,5 +435,5 @@
         });
     </script>
 </body>
-
 </html>
+ 

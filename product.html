@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>产品介绍 - MOLX</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    .gradient-bg {
+      background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    :root {
+      --main-gradient: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+      --main-color: #6366F1;
+      --secondary-color: #8B5CF6;
+      --accent-color: #10B981;
+      --bg-color: #FAFBFC;
+      --text-color: #1F2937;
+      --text-light: #6B7280;
+      --card-bg: #fff;
+      --card-shadow: 0 8px 32px rgba(99, 102, 241, 0.12);
+      --radius: 20px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      /* 新增缺失的CSS变量 */
+      --primary-gradient: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+      --secondary-gradient: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+      --accent-gradient: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --border-color: rgba(255, 255, 255, 0.2);
+      --dark-bg: #1F2937;
+      --text-primary: #1F2937;
+      --text-secondary: #6B7280;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+      --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      height: 68px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--main-color);
+      letter-spacing: 1px;
+    }
+
+    .logo i {
+      margin-right: 10px;
+      font-size: 1.6rem;
+      color: var(--secondary-color);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      /* font-weight: 500; */
+      /* padding: 8px 12px; */
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+
+    nav a.active,
+    nav a:hover {
+      /* background: var(--main-gradient);
+      color: #fff; */
+    }
+
+    .lang-switch {
+      position: relative;
+      margin-left: 16px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      font: inherit;
+      color: #333;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .lang-btn:hover,
+    .lang-btn:focus {
+      background: var(--main-gradient);
+      color: #fff;
+    }
+
+    .lang-list {
+      display: none;
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      min-width: 120px;
+      z-index: 10;
+    }
+
+    .lang-switch:hover .lang-list,
+    .lang-switch:focus-within .lang-list {
+      display: block;
+    }
+
+    .lang-list button {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 10px 16px;
+      text-align: left;
+      font: inherit;
+      color: #333;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+
+    .lang-list button:hover {
+      background: var(--main-gradient);
+      color: #fff;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--main-color);
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .nav-container {
+        flex-direction: column;
+        height: auto;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        display: none;
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      nav a {
+        width: 100%;
+        text-align: left;
+        padding: 14px 24px;
+      }
+
+      .lang-switch {
+        margin-left: 0;
+      }
+
+      .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 24px;
+        top: 18px;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 0 100px 0;
+      background: var(--main-gradient);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>') no-repeat center center;
+      background-size: cover;
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 800;
+      margin-bottom: 24px;
+      color: white;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      line-height: 1.1;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+
+    /* Hero Showcase Styles */
+    .hero-showcase {
+      margin-top: 60px;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+
+    .showcase-item {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 32px 24px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .showcase-item:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-heavy);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .showcase-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--primary-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: var(--shadow-light);
+    }
+
+    .showcase-icon i {
+      font-size: 2rem;
+      color: white;
+    }
+
+    .showcase-item h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .showcase-item p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Ecosystem Visual */
+    .ecosystem-visual {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ecosystem-center {
+      position: absolute;
+      z-index: 10;
+    }
+
+    .center-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--primary-gradient);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      box-shadow: var(--shadow-heavy);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .center-logo i {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .center-logo span {
+      font-size: 0.9rem;
+    }
+
+    .ecosystem-nodes {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .eco-node {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 2px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .eco-node:hover {
+      background: var(--secondary-gradient);
+      transform: scale(1.1);
+      box-shadow: var(--shadow-light);
+    }
+
+    .eco-node i {
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+    .eco-node span {
+      font-size: 0.7rem;
+    }
+
+    .node-top {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .node-right {
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+
+    .node-bottom {
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .node-left {
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    .connection-lines {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .line {
+      position: absolute;
+      background: linear-gradient(45deg, #00d4ff, #ff6b6b);
+      opacity: 0.6;
+    }
+
+    .line-top {
+      top: 40px;
+      left: 50%;
+      width: 2px;
+      height: calc(50% - 80px);
+      transform: translateX(-50%);
+    }
+
+    .line-right {
+      top: 50%;
+      right: 40px;
+      width: calc(50% - 80px);
+      height: 2px;
+      transform: translateY(-50%);
+    }
+
+    .line-bottom {
+      bottom: 40px;
+      left: 50%;
+      width: 2px;
+      height: calc(50% - 80px);
+      transform: translateX(-50%);
+    }
+
+    .line-left {
+      top: 50%;
+      left: 40px;
+      width: calc(50% - 80px);
+      height: 2px;
+      transform: translateY(-50%);
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes flow {
+
+      0%,
+      100% {
+        opacity: 0.3;
+      }
+
+      50% {
+        opacity: 0.8;
+      }
+    }
+
+    /* Ecosystem Description */
+    .ecosystem-description {
+      text-align: center;
+      margin-top: 20px;
+      padding: 32px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .ecosystem-description h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .ecosystem-description p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Products Section */
+    .products-section {
+      padding: 120px 0;
+      background: linear-gradient(180deg, var(--main-gradient) 0%, var(--bg-color) 100%);
+      margin-top: 40px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      /* padding: 0 32px; */
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .section-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: var(--text-color);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-subtitle {
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 80px;
+    }
+
+    .secondary-products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      box-shadow: var(--shadow-light);
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--primary-gradient);
+    }
+
+    .product-card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    .product-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .product-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--radius-md);
+      background: var(--primary-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 24px;
+      box-shadow: var(--shadow-light);
+    }
+
+    .product-icon i {
+      font-size: 2rem;
+      color: white;
+    }
+
+    .product-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .product-subtitle {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+    }
+
+    .product-description {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .product-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      background: rgba(102, 126, 234, 0.05);
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+
+    .feature-item:hover {
+      background: rgba(102, 126, 234, 0.1);
+      transform: translateX(8px);
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .feature-icon i {
+      color: white;
+      font-size: 1rem;
+    }
+
+    .feature-text {
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* MOLX Features Styles */
+    .molx-features {
+      margin-bottom: 32px;
+    }
+
+    .features-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid rgba(102, 126, 234, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(102, 126, 234, 0.15);
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .feature-icon-large {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--primary-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .feature-icon-large i {
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    .feature-card h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    .product-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .metric {
+      text-align: center;
+    }
+
+    .metric-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .metric-label {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Special styling for MOLX main product */
+    .product-card.featured {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+      border: 2px solid rgba(102, 126, 234, 0.3);
+    }
+
+    .product-card.featured::before {
+      height: 6px;
+      background: var(--primary-gradient);
+    }
+
+    .product-card.featured .product-icon {
+      width: 100px;
+      height: 100px;
+    }
+
+    .product-card.featured .product-title {
+      font-size: 2.5rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 100px 0;
+      background: var(--dark-bg);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent 30%, rgba(102, 126, 234, 0.1) 50%, transparent 70%);
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-title {
+      font-size: 3rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .cta-subtitle {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 40px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 16px 32px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.1rem;
+    }
+
+    .btn-primary {
+      background: var(--primary-gradient);
+      color: white;
+      box-shadow: var(--shadow-light);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Footer */
+    footer {
+      background: #000;
+      color: white;
+      padding: 60px 0 30px;
+      /* text-align: center; */
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .footer-social a {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: var(--transition);
+    }
+
+    .footer-social a:hover {
+      background: var(--primary-gradient);
+      transform: translateY(-4px);
+    }
+
+    .footer-copyright {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0 20px;
+        height: 70px;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+      }
+
+      .product-card {
+        padding: 32px 24px;
+      }
+
+      .product-features {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-title {
+        font-size: 2rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    /* Scroll animations */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
+
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="font-sans antialiased text-gray-900 bg-gray-50">
+  <!-- 导航栏 -->
+  <nav class="bg-white shadow-md fixed w-full z-50">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="official.html" class="text-2xl font-bold text-blue-600">MOLX</a>
+      </div>
+      <div class="hidden md:flex items-center space-x-8" id="main-nav">
+        <a href="official.html" class="hover:text-blue-600 transition-colors">首页</a>
+        <a href="product.html" class="hover:text-blue-600 transition-colors text-blue-600">产品介绍</a>
+        <a href="about.html" class="hover:text-blue-600 transition-colors">关于我们</a>
+        <a href="https://h5.molx.io/H5mall/?tabIndex=0&postTabIndex=1" target="_blank"
+          class="hover:text-blue-600 transition-colors">MOLX商城</a>
+        <!-- <a href="download.html" class="hover:text-blue-600 transition-colors">下载APP</a> -->
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="download.html"
+          class="px-6 py-3 rounded-md bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">下载MOLX</a>
+        <button class="md:hidden focus:outline-none" onclick="toggleMenu()">
+          <i class="fas fa-bars text-blue-600 text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="fade-in-up">构建未来金融生态</h1>
+      <p class="fade-in-up">MOLX 打造全方位 Web3 金融服务平台，连接传统金融与去中心化世界</p>
+
+      <!-- Web3 产品展示区域 -->
+      <div class="hero-showcase">
+        <div class="showcase-grid">
+          <div class="showcase-item scroll-reveal">
+            <div class="showcase-icon">
+              <i class="fas fa-coins"></i>
+            </div>
+            <h3>跨链支付</h3>
+            <p>支持50+主流公链，实现无缝跨链资产转移</p>
+          </div>
+          <div class="showcase-item scroll-reveal">
+            <div class="showcase-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>安全保障</h3>
+            <p>银行级安全标准，多重签名保护用户资产</p>
+          </div>
+          <div class="showcase-item scroll-reveal">
+            <div class="showcase-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h3>极速体验</h3>
+            <p>Layer 2技术加持，秒级确认超低手续费</p>
+          </div>
+          <div class="showcase-item scroll-reveal">
+            <div class="showcase-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3>全球服务</h3>
+            <p>覆盖全球200+国家和地区，24/7不间断服务</p>
+          </div>
+        </div>
+
+        <!-- Web3 生态连接图 -->
+        <div class="ecosystem-visual scroll-reveal">
+          <div class="ecosystem-center">
+            <div class="center-logo">
+              <i class="fas fa-cube"></i>
+              <span>MOLX</span>
+            </div>
+          </div>
+          <div class="ecosystem-nodes">
+            <!-- 上方：Pay -->
+            <div class="eco-node node-top">
+              <i class="fas fa-credit-card"></i>
+              <span>Pay</span>
+            </div>
+            <!-- 右方：Sofi -->
+            <div class="eco-node node-right">
+              <i class="fas fa-users"></i>
+              <span>Sofi</span>
+            </div>
+            <!-- 下方：Wallet -->
+            <div class="eco-node node-bottom">
+              <i class="fas fa-wallet"></i>
+              <span>Wallet</span>
+            </div>
+            <!-- 左方：商城 -->
+            <div class="eco-node node-left">
+              <i class="fas fa-store"></i>
+              <span>商城</span>
+            </div>
+          </div>
+          <div class="connection-lines">
+            <div class="line line-top"></div>
+            <div class="line line-right"></div>
+            <div class="line line-bottom"></div>
+            <div class="line line-left"></div>
+          </div>
+        </div>
+
+        <!-- 生态连接图说明 -->
+        <div class="ecosystem-description">
+          <h3>MOLX 生态连接图</h3>
+          <p>以 MOLX 为核心，连接支付、钱包、商城和社交四大产品模块，构建完整的 Web3 生态系统</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <h2 class="section-title">产品生态系统</h2>
+        <p class="section-subtitle">四大核心产品，构建完整的 Web3 金融服务生态链</p>
+      </div>
+
+      <div class="products-grid">
+        <!-- MOLX 主产品 -->
+        <div class="product-card featured scroll-reveal">
+          <div class="product-header">
+            <div class="product-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <div>
+              <h3 class="product-title">MOLX Pay</h3>
+              <p class="product-subtitle">核心支付基础设施</p>
+            </div>
+          </div>
+          <p class="product-description">
+            MOLX Pay 是我们的旗舰产品，提供安全、快速、低成本的跨链支付解决方案。支持多种加密货币和法币，为用户提供无缝的支付体验。采用先进的Layer 2技术，实现秒级确认和极低手续费。
+          </p>
+          <div class="molx-features">
+            <div class="features-row">
+              <div class="feature-card">
+                <div class="feature-icon-large"><i class="fas fa-bolt"></i></div>
+                <h4>闪电支付</h4>
+                <p>Layer 2技术加持，实现秒级确认</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-large"><i class="fas fa-shield-alt"></i></div>
+                <h4>机构级安全</h4>
+                <p>多重签名保护，资产安全无忧</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-large"><i class="fas fa-globe"></i></div>
+                <h4>全球覆盖</h4>
+                <p>200+国家地区，24/7服务</p>
+              </div>
+            </div>
+            <div class="features-row">
+              <div class="feature-card">
+                <div class="feature-icon-large"><i class="fas fa-coins"></i></div>
+                <h4>多币种支持</h4>
+                <p>支持1000+数字资产交易</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-large"><i class="fas fa-chart-line"></i></div>
+                <h4>实时汇率</h4>
+                <p>毫秒级汇率更新，最优价格</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-large"><i class="fas fa-mobile-alt"></i></div>
+                <h4>移动优先</h4>
+                <p>原生移动体验，随时随地</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-metrics">
+            <div class="metric">
+              <div class="metric-value">$1.2B</div>
+              <div class="metric-label">月交易量</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">0.1%</div>
+              <div class="metric-label">平均手续费</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">2.3s</div>
+              <div class="metric-label">平均确认时间</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">200+</div>
+              <div class="metric-label">合作商户</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 其他三个产品 -->
+        <div class="secondary-products">
+          <!-- 商城 -->
+          <div class="product-card scroll-reveal">
+            <div class="product-header">
+              <div class="product-icon">
+                <i class="fas fa-store"></i>
+              </div>
+              <div>
+                <h3 class="product-title">MOLX 商城</h3>
+                <p class="product-subtitle">Web3 电商平台</p>
+              </div>
+            </div>
+            <p class="product-description">
+              基于区块链技术的去中心化电商平台，支持加密货币支付，为用户提供安全、透明的购物体验。
+            </p>
+            <div class="product-features">
+              <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-shopping-cart"></i></div>
+                <span class="feature-text">加密支付</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-gem"></i></div>
+                <span class="feature-text">NFT商品</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-truck"></i></div>
+                <span class="feature-text">全球配送</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-star"></i></div>
+                <span class="feature-text">会员权益</span>
+              </div>
+            </div>
+            <div class="product-metrics">
+              <div class="metric">
+                <div class="metric-value">50K+</div>
+                <div class="metric-label">商品数量</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">98%</div>
+                <div class="metric-label">用户满意度</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sofi -->
+          <div class="product-card scroll-reveal">
+            <div class="product-header">
+              <div class="product-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div>
+                <h3 class="product-title">MOLX Sofi</h3>
+                <p class="product-subtitle">Web3 社交平台</p>
+              </div>
+            </div>
+            <p class="product-description">
+              创新的Web3社交媒体平台，连接用户与MOLX生态系统。用户可以分享动态、交流心得，是用户与平台沟通的重要桥梁。
+            </p>
+            <div class="product-features">
+              <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-share-alt"></i></div>
+                <span class="feature-text">动态分享</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-comments"></i></div>
+                <span class="feature-text">社区互动</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                <span class="feature-text">内容点赞</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-bell"></i></div>
+                <span class="feature-text">实时通知</span>
+              </div>
+            </div>
+            <div class="product-metrics">
+              <div class="metric">
+                <div class="metric-value">500K+</div>
+                <div class="metric-label">活跃用户</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">2M+</div>
+                <div class="metric-label">日均互动</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wallet -->
+          <div class="product-card scroll-reveal">
+            <div class="product-header">
+              <div class="product-icon">
+                <i class="fas fa-wallet"></i>
+              </div>
+              <div>
+                <h3 class="product-title">MOLX Wallet</h3>
+                <p class="product-subtitle">多链数字钱包</p>
+              </div>
+            </div>
+            <p class="product-description">
+              安全可靠的多链数字资产钱包，支持主流公链和代币。提供充值、转账、兑换和跨链桥等专业功能。
+            </p>
+            <div class="product-features">
+              <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-key"></i></div>
+                <span class="feature-text">资产交易</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-link"></i></div>
+                <span class="feature-text">多链支持</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-cube"></i></div>
+                <span class="feature-text">DApp浏览器</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-microchip"></i></div>
+                <span class="feature-text">DeFi平台</span>
+              </div>
+            </div>
+            <div class="product-metrics">
+              <div class="metric">
+                <div class="metric-value">300K+</div>
+                <div class="metric-label">钱包用户</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">50+</div>
+                <div class="metric-label">支持公链</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content scroll-reveal">
+        <h2 class="cta-title">开启您的 Web3 金融之旅</h2>
+        <p class="cta-subtitle">立即体验 MOLX 生态系统，享受安全、便捷的数字金融服务</p>
+        <div class="cta-buttons">
+          <a href="download.html" class="btn btn-primary">
+            <i class="fas fa-download"></i>
+            下载应用
+          </a>
+          <a href="https://h5.molx.io/H5mall/" target="_blank" class="btn btn-secondary">
+            <i class="fas fa-store"></i>
+            访问商城
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">MOLX</h3>
+          <p class="text-gray-400">
+            融合社交金融与现实资产的 Web3 平台，重塑忠诚度积分与资产管理的未来。
+          </p>
+          <div class="flex space-x-4 mt-6">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-telegram"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">快速链接</h3>
+          <ul class="space-y-2">
+            <li><a href="official.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+            <li><a href="product.html" class="text-gray-400 hover:text-white transition-colors">产品介绍</a></li>
+            <li><a href="download.html" class="text-gray-400 hover:text-white transition-colors">下载APP</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">资源</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">文档</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">白皮书</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">API</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">帮助中心</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">联系我们</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <i class="fas fa-envelope text-gray-400 mt-1 mr-2"></i>
+              <span class="text-gray-400">info@molx.io</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt text-gray-400 mt-1 mr-2"></i>
+              <span class="text-gray-400">香港新鸿基中心大厦</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm">
+          &copy; 2025 MOLX 保留所有权利。
+        </p>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+          <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">隐私政策</a>
+          <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">服务条款</a>
+          <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">法律声明</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal animation
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.scroll-reveal');
+
+      reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('revealed');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+
+    // Initial check
+    revealOnScroll();
+
+    // Header background on scroll
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(255, 255, 255, 0.98)';
+      } else {
+        header.style.background = 'rgba(255, 255, 255, 0.95)';
+      }
+    });
+
+    // 移动端导航菜单
+    function toggleMenu() {
+      const nav = document.getElementById('main-nav');
+      nav.classList.toggle('hidden');
+      nav.classList.toggle('flex');
+      nav.classList.toggle('flex-col');
+      nav.classList.toggle('absolute');
+      nav.classList.toggle('top-16');
+      nav.classList.toggle('left-0');
+      nav.classList.toggle('w-full');
+      nav.classList.toggle('bg-white');
+      nav.classList.toggle('p-4');
+      nav.classList.toggle('shadow-md');
+      nav.classList.toggle('z-40'); // 确保移动菜单的z-index低于导航栏
+    }
+
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
