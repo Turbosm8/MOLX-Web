@@ -224,14 +224,14 @@
 
     /* Hero Section */
     .hero {
-      min-height: 100vh;
+      min-height: 50vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       position: relative;
       overflow: hidden;
-      padding: 120px 0 100px 0;
+      padding: 80px 0 60px 0;
       background: var(--main-gradient);
     }
 
@@ -248,7 +248,7 @@
     }
 
     .hero-content {
-      max-width: 900px;
+      /* max-width: 900px; */
       margin: 0 auto;
       padding: 0 32px;
       position: relative;
@@ -274,13 +274,23 @@
     /* Hero Showcase Styles */
     .hero-showcase {
       margin-top: 60px;
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 20px;
     }
 
     .showcase-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 32px;
-      margin-bottom: 80px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 43px;
+      margin-bottom: 0;
+      flex: 1.2;
+      max-width: 700px;
     }
 
     .showcase-item {
@@ -288,7 +298,7 @@
       backdrop-filter: blur(20px);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
-      padding: 32px 24px;
+      padding: 28px 24px;
       text-align: center;
       transition: var(--transition);
     }
@@ -300,41 +310,50 @@
     }
 
     .showcase-icon {
-      width: 80px;
-      height: 80px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
       background: var(--primary-gradient);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 20px;
+      margin: 0 auto 18px;
       box-shadow: var(--shadow-light);
     }
 
     .showcase-icon i {
-      font-size: 2rem;
+      font-size: 1.6rem;
       color: white;
     }
 
     .showcase-item h3 {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: white;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .showcase-item p {
       color: rgba(255, 255, 255, 0.8);
-      font-size: 1rem;
+      font-size: 0.95rem;
       line-height: 1.5;
+    }
+
+    /* Ecosystem Visual Container */
+    .ecosystem-container {
+      flex: 0.8;
+      max-width: 450px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     /* Ecosystem Visual */
     .ecosystem-visual {
       position: relative;
-      width: 400px;
-      height: 400px;
-      margin: 0 auto;
+      width: 350px;
+      height: 350px;
+      margin: 0 auto 20px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -505,27 +524,26 @@
     .ecosystem-description {
       text-align: center;
       margin-top: 20px;
-      padding: 32px;
+      padding: 24px;
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(20px);
       border-radius: var(--radius-md);
       border: 1px solid var(--border-color);
+      width: 100%;
     }
 
     .ecosystem-description h3 {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: white;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
     .ecosystem-description p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: rgba(255, 255, 255, 0.9);
-      line-height: 1.6;
-      max-width: 600px;
-      margin: 0 auto;
+      line-height: 1.5;
     }
 
     /* Products Section */
@@ -931,10 +949,94 @@
       font-size: 0.9rem;
     }
 
+    .business-lines {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .business-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem 1.5rem;
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .business-item:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+    }
+
+    .business-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      flex-shrink: 0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .business-icon i {
+      font-size: 2rem;
+      color: white;
+    }
+
+    .business-content h4 {
+      margin: 0 0 0.8rem 0;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .business-content p {
+      margin: 0;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.5;
+    }
+
     /* Responsive Design */
     @media (max-width: 1200px) {
       .products-grid {
         grid-template-columns: 1fr;
+      }
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 1024px) {
+      .hero-showcase {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+        max-width: 100%;
+        padding: 0 32px;
+      }
+
+      .showcase-grid {
+        max-width: 100%;
+        margin-bottom: 40px;
+        flex: 1;
+      }
+
+      .ecosystem-container {
+        max-width: 100%;
+        flex: 1;
       }
     }
 
@@ -963,6 +1065,53 @@
       .hero-stats {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
+      }
+
+      .hero-showcase {
+        padding: 0 20px;
+      }
+
+      .showcase-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .ecosystem-visual {
+        width: 300px;
+        height: 300px;
+      }
+
+      .hero-showcase {
+        gap: 30px;
+      }
+
+      .business-lines {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-top: 1.5rem;
+        max-width: 100%;
+      }
+
+      .business-item {
+        padding: 1.5rem 1rem;
+      }
+
+      .business-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+      }
+
+      .business-icon i {
+        font-size: 1.5rem;
+      }
+
+      .business-content h4 {
+        font-size: 1.1rem;
+      }
+
+      .business-content p {
+        font-size: 0.9rem;
       }
 
       .section-title {
@@ -1050,84 +1199,36 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1 class="fade-in-up">构建未来金融生态</h1>
-      <p class="fade-in-up">MOLX 打造全方位 Web3 金融服务平台，连接传统金融与去中心化世界</p>
-
-      <!-- Web3 产品展示区域 -->
-      <div class="hero-showcase">
-        <div class="showcase-grid">
-          <div class="showcase-item scroll-reveal">
-            <div class="showcase-icon">
-              <i class="fas fa-coins"></i>
-            </div>
-            <h3>跨链支付</h3>
-            <p>支持50+主流公链，实现无缝跨链资产转移</p>
-          </div>
-          <div class="showcase-item scroll-reveal">
-            <div class="showcase-icon">
-              <i class="fas fa-shield-alt"></i>
-            </div>
-            <h3>安全保障</h3>
-            <p>银行级安全标准，多重签名保护用户资产</p>
-          </div>
-          <div class="showcase-item scroll-reveal">
-            <div class="showcase-icon">
-              <i class="fas fa-rocket"></i>
-            </div>
-            <h3>极速体验</h3>
-            <p>Layer 2技术加持，秒级确认超低手续费</p>
-          </div>
-          <div class="showcase-item scroll-reveal">
-            <div class="showcase-icon">
-              <i class="fas fa-globe"></i>
-            </div>
-            <h3>全球服务</h3>
-            <p>覆盖全球200+国家和地区，24/7不间断服务</p>
+      <h1 class="fade-in-up">构建Web3支付的未来</h1>
+      <p class="fade-in-up">MOLX致力于构建全球领先的Web3数字支付生态系统，为用户提供一站式数字金融服务：</p>
+      <div class="business-lines">
+        <div class="business-item">
+          <div class="business-icon"><i class="fas fa-credit-card"></i></div>
+          <div class="business-content">
+            <h4>Pay支付网关</h4>
+            <p>便捷的数字资产充值提现服务</p>
           </div>
         </div>
-
-        <!-- Web3 生态连接图 -->
-        <div class="ecosystem-visual scroll-reveal">
-          <div class="ecosystem-center">
-            <div class="center-logo">
-              <i class="fas fa-cube"></i>
-              <span>MOLX</span>
-            </div>
-          </div>
-          <div class="ecosystem-nodes">
-            <!-- 上方：Pay -->
-            <div class="eco-node node-top">
-              <i class="fas fa-credit-card"></i>
-              <span>Pay</span>
-            </div>
-            <!-- 右方：Sofi -->
-            <div class="eco-node node-right">
-              <i class="fas fa-users"></i>
-              <span>Sofi</span>
-            </div>
-            <!-- 下方：Wallet -->
-            <div class="eco-node node-bottom">
-              <i class="fas fa-wallet"></i>
-              <span>Wallet</span>
-            </div>
-            <!-- 左方：商城 -->
-            <div class="eco-node node-left">
-              <i class="fas fa-store"></i>
-              <span>商城</span>
-            </div>
-          </div>
-          <div class="connection-lines">
-            <div class="line line-top"></div>
-            <div class="line line-right"></div>
-            <div class="line line-bottom"></div>
-            <div class="line line-left"></div>
+        <div class="business-item">
+          <div class="business-icon"><i class="fas fa-shopping-cart"></i></div>
+          <div class="business-content">
+            <h4>Mall购物商城</h4>
+            <p>丰富的消费应用场景平台</p>
           </div>
         </div>
-
-        <!-- 生态连接图说明 -->
-        <div class="ecosystem-description">
-          <h3>MOLX 生态连接图</h3>
-          <p>以 MOLX 为核心，连接支付、钱包、商城和社交四大产品模块，构建完整的 Web3 生态系统</p>
+        <div class="business-item">
+          <div class="business-icon"><i class="fas fa-users"></i></div>
+          <div class="business-content">
+            <h4>Sofi社交金融</h4>
+            <p>连接用户与社区生态网络</p>
+          </div>
+        </div>
+        <div class="business-item">
+          <div class="business-icon"><i class="fas fa-wallet"></i></div>
+          <div class="business-content">
+            <h4>Wallet数字钱包</h4>
+            <p>安全的去中心化资产管理</p>
+          </div>
         </div>
       </div>
     </div>

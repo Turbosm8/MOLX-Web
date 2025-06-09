@@ -144,6 +144,555 @@
       color: rgba(255, 255, 255, 0.8);
       line-height: 1.4;
     }
+    
+  /* Hero Section */
+  .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 0 100px 0;
+      background: var(--main-gradient);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>') no-repeat center center;
+      background-size: cover;
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      /* max-width: 900px; */
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 800;
+      margin-bottom: 24px;
+      color: white;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      line-height: 1.1;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+    
+    Hero Showcase Styles
+    .hero-showcase {
+      margin-top: 60px;
+      display: flex;
+      gap: 80px;
+      align-items: flex-start;
+      justify-content: space-between;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 40px;
+      /* min-height: 600px; */
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      flex: 1;
+      max-width: 650px;
+    }
+
+    .showcase-item {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      text-align: center;
+      transition: var(--transition);
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .showcase-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    .showcase-item:hover::before {
+      left: 100%;
+    }
+
+    .showcase-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .showcase-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: var(--main-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .showcase-item:hover .showcase-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .showcase-icon i {
+      font-size: 1.8rem;
+      color: white;
+    }
+
+    .showcase-item h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 12px;
+      transition: var(--transition);
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .showcase-item:hover h3 {
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .showcase-item p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+      line-height: 1.6;
+      transition: var(--transition);
+      text-align: center;
+      margin: 0;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .showcase-item:hover p {
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    /* Ecosystem Visual Container */
+    .ecosystem-container {
+      flex: 1;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 600px;
+      padding-top: 40px;
+    }
+
+    /* Ecosystem Visual */
+    .ecosystem-visual {
+      position: relative;
+      width: 380px;
+      height: 380px;
+      margin: 0 auto 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ecosystem-center {
+      position: absolute;
+      z-index: 10;
+    }
+
+    .center-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--main-gradient);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      box-shadow: var(--card-shadow);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .center-logo i {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .center-logo span {
+      font-size: 0.9rem;
+    }
+
+    .ecosystem-nodes {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .eco-node {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .eco-node:hover {
+      background: linear-gradient(135deg, var(--secondary-color) 0%, #EC4899 100%);
+      transform: scale(1.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .eco-node i {
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+    .eco-node span {
+      font-size: 0.7rem;
+    }
+
+    .node-top {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .node-right {
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+
+    .node-bottom {
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .node-left {
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    .connection-lines {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .line {
+      position: absolute;
+      background: linear-gradient(45deg, #00d4ff, #ff6b6b);
+      opacity: 0.6;
+      animation: flow 2s ease-in-out infinite;
+    }
+
+    .line-top {
+      top: 40px;
+      left: 50%;
+      width: 2px;
+      height: calc(50% - 80px);
+      transform: translateX(-50%);
+      animation-delay: 0s;
+    }
+
+    .line-right {
+      top: 50%;
+      right: 40px;
+      width: calc(50% - 80px);
+      height: 2px;
+      transform: translateY(-50%);
+      animation-delay: 0.5s;
+    }
+
+    .line-bottom {
+      bottom: 40px;
+      left: 50%;
+      width: 2px;
+      height: calc(50% - 80px);
+      transform: translateX(-50%);
+      animation-delay: 1s;
+    }
+
+    .line-left {
+      top: 50%;
+      left: 40px;
+      width: calc(50% - 80px);
+      height: 2px;
+      transform: translateY(-50%);
+      animation-delay: 1.5s;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes flow {
+      0%, 100% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 0.8;
+      }
+    }
+
+    .center-logo i {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .center-logo span {
+      font-size: 0.9rem;
+    }
+
+    .ecosystem-nodes {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .eco-node {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .eco-node:hover {
+      background: linear-gradient(135deg, var(--secondary-color) 0%, #EC4899 100%);
+      transform: scale(1.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .eco-node i {
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+    .eco-node span {
+      font-size: 0.7rem;
+    }
+
+    .node-top {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .node-right {
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+
+    .node-bottom {
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .node-left {
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    .connection-lines {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .line {
+      position: absolute;
+      background: linear-gradient(45deg, #00d4ff, #ff6b6b);
+      opacity: 0.6;
+      animation: flow 2s ease-in-out infinite;
+    }
+
+    .line-top {
+      top: 40px;
+      left: 50%;
+      width: 2px;
+      height: calc(50% - 80px);
+      transform: translateX(-50%);
+      animation-delay: 0s;
+    }
+
+    .line-right {
+      top: 50%;
+      right: 40px;
+      width: calc(50% - 80px);
+      height: 2px;
+      transform: translateY(-50%);
+      animation-delay: 0.5s;
+    }
+
+    .line-bottom {
+      bottom: 40px;
+      left: 50%;
+      width: 2px;
+      height: calc(50% - 80px);
+      transform: translateX(-50%);
+      animation-delay: 1s;
+    }
+
+    .line-left {
+      top: 50%;
+      left: 40px;
+      width: calc(50% - 80px);
+      height: 2px;
+      transform: translateY(-50%);
+      animation-delay: 1.5s;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes flow {
+      0%, 100% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 0.8;
+      }
+    }
+
+    /* Ecosystem Description */
+    .ecosystem-description {
+      text-align: center;
+      margin-top: 20px;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      width: 100%;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ecosystem-description::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--main-gradient);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .ecosystem-description:hover::before {
+      transform: scaleX(1);
+    }
+
+    .ecosystem-description:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+      box-shadow: var(--card-shadow);
+    }
+
+    .ecosystem-description h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      transition: var(--transition);
+    }
+
+    .ecosystem-description:hover h3 {
+      color: #fff;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    .ecosystem-description p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.5;
+      transition: var(--transition);
+    }
+
+    .ecosystem-description:hover p {
+      color: rgba(255, 255, 255, 0.95);
+    }
 
     /* 品牌故事/愿景/使命 */
     .vision-section {
@@ -791,6 +1340,60 @@
         font-size: 1.8rem;
       }
 
+      .hero-showcase {
+        flex-direction: column;
+        gap: 50px;
+        padding: 0 20px;
+        min-height: auto;
+        align-items: center;
+      }
+
+      .showcase-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .showcase-item {
+        min-height: 240px;
+        padding: 24px 20px;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .showcase-icon {
+        width: 60px;
+        height: 60px;
+        margin: 15px auto 15px;
+      }
+
+      .showcase-icon i {
+        font-size: 1.5rem;
+      }
+
+      .showcase-item h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      .showcase-item p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .ecosystem-container {
+        max-width: 100%;
+        height: auto;
+        padding-top: 20px;
+      }
+
+      .ecosystem-visual {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto 20px;
+      }
+
       .business-lines {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -1013,35 +1616,86 @@
   <!-- 公司介绍Banner -->
   <section class="about-banner">
     <div class="about-banner-content">
-      <h1>构建Web3支付的未来</h1>
-      <p>MOLX致力于构建全球领先的Web3数字支付生态系统，为用户提供一站式数字金融服务：</p>
-      <div class="business-lines">
-        <div class="business-item">
-          <div class="business-icon"><i class="fas fa-credit-card"></i></div>
-          <div class="business-content">
-            <h4>Pay支付网关</h4>
-            <p>便捷的数字资产充值提现服务</p>
+      <h1>构建未来金融生态</h1>
+      <p>MOLX 打造全方位 Web3 金融服务平台，连接传统金融与去中心化世界</p>
+
+      <!-- Web3 产品展示区域 -->
+      <div class="hero-showcase">
+        <div class="showcase-grid">
+          <div class="showcase-item scroll-reveal">
+            <div class="showcase-icon">
+              <i class="fas fa-coins"></i>
+            </div>
+            <h3>跨链支付</h3>
+            <p>支持50+主流公链，实现无缝跨链资产转移</p>
+          </div>
+          <div class="showcase-item scroll-reveal">
+            <div class="showcase-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>安全保障</h3>
+            <p>银行级安全标准，多重签名保护用户资产</p>
+          </div>
+          <div class="showcase-item scroll-reveal">
+            <div class="showcase-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h3>极速体验</h3>
+            <p>Layer 2技术加持，秒级确认超低手续费</p>
+          </div>
+          <div class="showcase-item scroll-reveal">
+            <div class="showcase-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3>全球服务</h3>
+            <p>覆盖全球200+国家和地区，24/7不间断服务</p>
           </div>
         </div>
-        <div class="business-item">
-          <div class="business-icon"><i class="fas fa-shopping-cart"></i></div>
-          <div class="business-content">
-            <h4>Mall购物商城</h4>
-            <p>丰富的消费应用场景平台</p>
+
+        <!-- Web3 生态连接图容器 -->
+        <div class="ecosystem-container">
+          <!-- Web3 生态连接图 -->
+          <div class="ecosystem-visual scroll-reveal">
+            <div class="ecosystem-center">
+              <div class="center-logo">
+                <i class="fas fa-cube"></i>
+                <span>MOLX</span>
+              </div>
+            </div>
+            <div class="ecosystem-nodes">
+              <!-- 上方：Pay -->
+              <div class="eco-node node-top">
+                <i class="fas fa-credit-card"></i>
+                <span>Pay</span>
+              </div>
+              <!-- 右方：Sofi -->
+              <div class="eco-node node-right">
+                <i class="fas fa-users"></i>
+                <span>Sofi</span>
+              </div>
+              <!-- 下方：Wallet -->
+              <div class="eco-node node-bottom">
+                <i class="fas fa-wallet"></i>
+                <span>Wallet</span>
+              </div>
+              <!-- 左方：商城 -->
+              <div class="eco-node node-left">
+                <i class="fas fa-store"></i>
+                <span>商城</span>
+              </div>
+            </div>
+            <div class="connection-lines">
+              <div class="line line-top"></div>
+              <div class="line line-right"></div>
+              <div class="line line-bottom"></div>
+              <div class="line line-left"></div>
+            </div>
           </div>
-        </div>
-        <div class="business-item">
-          <div class="business-icon"><i class="fas fa-users"></i></div>
-          <div class="business-content">
-            <h4>Sofi社交金融</h4>
-            <p>连接用户与社区生态网络</p>
-          </div>
-        </div>
-        <div class="business-item">
-          <div class="business-icon"><i class="fas fa-wallet"></i></div>
-          <div class="business-content">
-            <h4>Wallet数字钱包</h4>
-            <p>安全的去中心化资产管理</p>
+
+          <!-- 生态连接图说明 -->
+          <div class="ecosystem-description">
+            <h3>MOLX 生态连接图</h3>
+            <p>以 MOLX 为核心，连接支付、钱包、商城和社交四大产品模块，构建完整的 Web3 生态系统</p>
           </div>
         </div>
       </div>
